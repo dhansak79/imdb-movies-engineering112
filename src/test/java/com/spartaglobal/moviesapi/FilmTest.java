@@ -12,6 +12,7 @@ class FilmTest {
     Film film = new Film();
     film.setTitle("The Godfather");
     assertEquals("The Godfather", film.getTitle());
+    assertEquals(true, film.doSomething());
   }
 
 
