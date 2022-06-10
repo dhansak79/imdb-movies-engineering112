@@ -9,6 +9,9 @@ on:
   pull_request:
     branches: [ "development" ]
 
+env:
+  CUCUMBER_PUBLISH_TOKEN: ${{ secrets.CUCUMBER_PUBLISH_TOKEN }}
+
 jobs:
   build:
 
