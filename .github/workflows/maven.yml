@@ -8,6 +8,8 @@ env:
   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
   CUCUMBER_PUBLISH_TOKEN: ${{ secrets.CUCUMBER_PUBLISH_TOKEN }}
 
+
+
 on:
   push:
     branches: [ "development" ]
@@ -27,6 +29,7 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+        fetch-depth: 0
     - name: Cache SonarCloud packages
       uses: actions/cache@v1
       with:
