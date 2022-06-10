@@ -1,3 +1,14 @@
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=dhansak79_imdb-movies-engineering112&metric=coverage)](https://sonarcloud.io/summary/new_code?id=dhansak79_imdb-movies-engineering112)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=dhansak79_imdb-movies-engineering112&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=dhansak79_imdb-movies-engineering112)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=dhansak79_imdb-movies-engineering112&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=dhansak79_imdb-movies-engineering112)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=dhansak79_imdb-movies-engineering112&metric=bugs)](https://sonarcloud.io/summary/new_code?id=dhansak79_imdb-movies-engineering112)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=dhansak79_imdb-movies-engineering112&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=dhansak79_imdb-movies-engineering112)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=dhansak79_imdb-movies-engineering112&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=dhansak79_imdb-movies-engineering112)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=dhansak79_imdb-movies-engineering112&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=dhansak79_imdb-movies-engineering112)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=dhansak79_imdb-movies-engineering112&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=dhansak79_imdb-movies-engineering112)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=dhansak79_imdb-movies-engineering112&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=dhansak79_imdb-movies-engineering112)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=dhansak79_imdb-movies-engineering112&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=dhansak79_imdb-movies-engineering112)
+
 # Engineering 112 Final Project
 
 Application that cleans records, adds to a database, and then allows users to filter and select data using an API
