@@ -34,4 +34,4 @@ jobs:
         key: ${{ runner.os }}-sonar
         restore-keys: ${{ runner.os }}-sonar
     - name: Build and analyse
-      run: mvn --batch-mode --update-snapshots clean install -U org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=imdb-movies-engineering112
+      run: mvn clean install -U sonar:sonar -Pcoverage org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=imdb-movies-engineering112
