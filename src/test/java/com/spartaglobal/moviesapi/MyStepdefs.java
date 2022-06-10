@@ -1,11 +1,11 @@
-package cucumber;
+package com.spartaglobal.moviesapi;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
 
-public class MyStepdefs extends SpringIntegrationTest {
+public class MyStepdefs {
 
   @Given("all details are correct")
   public void all_details_are_correct() {
