@@ -9,9 +9,6 @@ on:
   pull_request:
     branches: [ "development" ]
 
-env:
-  CUCUMBER_PUBLISH_TOKEN: ${{ secrets.CUCUMBER_PUBLISH_TOKEN }}
-
 jobs:
   build:
 
@@ -35,4 +32,5 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.HUB_TOKEN }}  # Needed to get PR information, if any
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        CUCUMBER_PUBLISH_TOKEN: ${{ secrets.CUCUMBER_PUBLISH_TOKEN }}
       run: mvn --batch-mode --update-snapshots clean install -U org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=imdb-movies-engineering112
