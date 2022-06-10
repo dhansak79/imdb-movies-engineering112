@@ -1,3 +1,4 @@
+[![Java CI with Maven](https://github.com/dhansak79/imdb-movies-engineering112/actions/workflows/maven.yml/badge.svg)](https://github.com/dhansak79/imdb-movies-engineering112/actions/workflows/maven.yml)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=imdb-movies-engineering112&metric=coverage)](https://sonarcloud.io/summary/new_code?id=imdb-movies-engineering112)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=imdb-movies-engineering112&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=imdb-movies-engineering112)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=imdb-movies-engineering112&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=imdb-movies-engineering112)
