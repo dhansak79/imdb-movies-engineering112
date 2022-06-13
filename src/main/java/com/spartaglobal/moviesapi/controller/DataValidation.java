@@ -17,23 +17,11 @@ import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidRati
 import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidScoreException;
 import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidTitleException;
 import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidYearException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 
 public class DataValidation implements FilmValidation {
-
-  // Name
-  // score: Must be a float
-  // year
-  // duration
-  // Rating: enum
-  // Budget: must be a long
-  // Genre: Enum, can contain multiple genres (Action|Adventure|Fantasy)
-  // Gross: must be a long
-  // director
-  // actor1
-  // actor2
-  // actor3
-  // Language: enum or string?
-  // Country: enum or string?
 
   public static boolean validateData(String[] array) {
     try {
