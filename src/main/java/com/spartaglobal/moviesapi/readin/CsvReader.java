@@ -12,7 +12,7 @@ public class CsvReader {
 
   private static final Logger logger = LogManager.getLogger("log");
 
-  public static List<String[]> readFile(String fileName) {
+  public static List<String[]> readFile(String fileName)  {
     List<String[]> list = new ArrayList<>();
 
     logger.info("Reading file " + fileName);
@@ -24,6 +24,7 @@ public class CsvReader {
       }
     } catch (IOException e) {
       logger.error(e.getMessage());
+      throw new RuntimeException(e.getMessage());
     }
     return list;
 
