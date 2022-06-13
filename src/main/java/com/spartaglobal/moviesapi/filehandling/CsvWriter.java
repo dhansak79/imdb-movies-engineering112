@@ -1,14 +1,14 @@
-package com.spartaglobal.moviesapi.csvwriter;
+package com.spartaglobal.moviesapi.filehandling;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
-public class CSVWriter {
+public class CsvWriter {
 
   //Private constructor for utility class
-  private CSVWriter() {
+  private CsvWriter() {
   }
 
   public static Boolean writeListOfStringArraysToCSV(List<String[]> films, String writeOutFile) {

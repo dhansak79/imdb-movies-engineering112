@@ -1,4 +1,4 @@
-package com.spartaglobal.moviesapi.readin;
+package com.spartaglobal.moviesapi.filehandling;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
