@@ -11,9 +11,9 @@ public class CSVWriter {
   private CSVWriter() {
   }
 
-  public static Boolean writeListOfStringsToCSV(List<String[]> films, String writeOutFile) {
-    try
-        (BufferedWriter buffWrite = new BufferedWriter(new FileWriter(writeOutFile, false))) {
+  public static Boolean writeListOfStringArraysToCSV(List<String[]> films, String writeOutFile) {
+
+    try (BufferedWriter buffWrite = new BufferedWriter(new FileWriter(writeOutFile, false))) {
       for (String[] film : films) {
         String writeLine = String.join(",", film);
         buffWrite.write(writeLine);
@@ -28,23 +28,4 @@ public class CSVWriter {
 
   }
 
-  public static Boolean writeIncorruptLinesToCSV(String invalidLine, String writeOutFile) {
-
-    try
-        (BufferedWriter buffWrite = new BufferedWriter(new FileWriter(writeOutFile, false))) {
-      buffWrite.write(invalidLine);
-      buffWrite.newLine();
-      return true;
-
-    } catch (IOException ioe) {
-      System.out.println(ioe.getMessage());
-      return false;
-    }
-  }
 }
-
-
-
-
-
-
