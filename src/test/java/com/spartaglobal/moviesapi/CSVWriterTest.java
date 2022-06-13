@@ -39,7 +39,7 @@ public class CSVWriterTest {
 
   @Test
   public void invalidData() {
-    String inValidDataFile = "src/test/resources/TestCSVFiles/InValidData.csv";
+    String inValidDataFile = "src/test/resources/TestCSVFiles/InvalidData.csv";
 
     //Invalid csv line - title ,duration, actor 3 is missing.
     String[] inValidFilm = {"","3.2","2011","","PG-13", "237000000",
