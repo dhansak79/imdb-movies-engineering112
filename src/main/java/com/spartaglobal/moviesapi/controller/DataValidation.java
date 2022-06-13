@@ -21,7 +21,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 
-public class DataValidation implements FilmValidation {
+public class DataValidation {
 
   public static boolean validateData(String[] array) {
     try {
@@ -148,10 +148,6 @@ public class DataValidation implements FilmValidation {
 
   public static boolean isValidCountry(String input) throws ValidateException {
     if (Country.getCountryFromString(input) == null) {
-      throw new InvalidCountryException();
-    }
-
-    if (input.length() <= 0) {
       throw new InvalidCountryException();
     }
 
