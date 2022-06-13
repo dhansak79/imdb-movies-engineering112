@@ -67,6 +67,14 @@ class DataValidationTest {
   }
 
   @Test
+  void invalidYearNotANumberTest() {
+    Throwable throwable = assertThrows(InvalidYearException.class, () ->
+        DataValidation.isValidYear("aaaa"));
+
+    assertEquals("Film year is invalid", throwable.getMessage());
+  }
+
+  @Test
   void invalidDurationTest() {
     Throwable throwable = assertThrows(InvalidDurationException.class, () ->
         DataValidation.isValidDuration("199.1452"));
@@ -109,6 +117,14 @@ class DataValidationTest {
   void invalidNameTest() {
     Throwable throwable = assertThrows(InvalidNameException.class,
         () -> DataValidation.isValidName(""));
+
+    assertEquals("Name is invalid.", throwable.getMessage());
+  }
+
+  @Test
+  void invalidNameNullTest() {
+    Throwable throwable = assertThrows(InvalidNameException.class,
+        () -> DataValidation.isValidName(null));
 
     assertEquals("Name is invalid.", throwable.getMessage());
   }

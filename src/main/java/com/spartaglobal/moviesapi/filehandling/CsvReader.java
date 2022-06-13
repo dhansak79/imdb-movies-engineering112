@@ -1,4 +1,4 @@
-package com.spartaglobal.moviesapi.readin;
+package com.spartaglobal.moviesapi.filehandling;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

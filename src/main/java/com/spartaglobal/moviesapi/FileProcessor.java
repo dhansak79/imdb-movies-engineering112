@@ -1,8 +1,8 @@
 package com.spartaglobal.moviesapi;
 
 import com.spartaglobal.moviesapi.controller.DataValidation;
-import com.spartaglobal.moviesapi.csvwriter.CSVWriter;
-import com.spartaglobal.moviesapi.readin.CsvReader;
+import com.spartaglobal.moviesapi.filehandling.CsvWriter;
+import com.spartaglobal.moviesapi.filehandling.CsvReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +23,7 @@ public class FileProcessor {
       }
     }
 
-    CSVWriter.writeListOfStringArraysToCSV(validRecords, "cleanRecords.csv");
-    CSVWriter.writeListOfStringArraysToCSV(invalidRecords, "invalidRecords.csv");
+    CsvWriter.writeListOfStringArraysToCSV(validRecords, "cleanRecords.csv");
+    CsvWriter.writeListOfStringArraysToCSV(invalidRecords, "invalidRecords.csv");
   }
 }
