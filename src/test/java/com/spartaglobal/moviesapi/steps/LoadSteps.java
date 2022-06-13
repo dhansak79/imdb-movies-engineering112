@@ -1,3 +1,5 @@
+package com.spartaglobal.moviesapi.steps;
+
 import com.spartaglobal.moviesapi.FileProcessor;
 import io.cucumber.java.PendingException;
 import io.cucumber.java.en.Given;
