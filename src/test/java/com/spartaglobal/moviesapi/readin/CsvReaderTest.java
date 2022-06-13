@@ -2,8 +2,10 @@ package com.spartaglobal.moviesapi.readin;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.io.IOException;
 import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -27,19 +29,22 @@ public class CsvReaderTest {
     assertEquals(6, actualResult.size());
   }
 
-//  @Test
-//  public void fileDoesNotExist(){
-//    CsvReader.readFile( "random.csv" );
-//    assertTrue();
-//  }
+  @Test
+  @Disabled
+  public void fileDoesNotExist() {
+    assertThatThrownBy(() -> {
+      CsvReader.readFile("random.csv");
+    }).isInstanceOf(IOException.class)
+        .hasMessageContaining("");
+  }
 
   @Disabled
   @Test
-  public void readTwoFilms(){
+  public void readTwoFilms() {
     List<String[]> actualResult = CsvReader.readFile(
         "src/test/resources/com/spartaglobal/moviesapi/test_csv_files/test_data6.csv");
     String[] expectedResult = new String[]{"Avatar",
-    "7.9",
+        "7.9",
         "2009",
         "178",
         "PG-13",
@@ -52,7 +57,7 @@ public class CsvReaderTest {
         "Wes Studi",
         "English",
         "USA]",
-      "[Pirates of the Caribbean: At World's End",
+        "[Pirates of the Caribbean: At World's End",
         "7.1",
         "2007",
         "169",
@@ -66,7 +71,7 @@ public class CsvReaderTest {
         "Jack Davenport",
         "English",
         "USA",
-      "[Spectre",
+        "[Spectre",
         "6.8",
         "2015",
         "148",
@@ -80,7 +85,7 @@ public class CsvReaderTest {
         "Stephanie Sigman",
         "English",
         "UK]",
-      "[The Dark Knight Rises",
+        "[The Dark Knight Rises",
         "8.5",
         "2012",
         "164",
@@ -94,7 +99,7 @@ public class CsvReaderTest {
         "Joseph Gordon-Levitt",
         "English",
         "USA]",
-      "[John Carter",
+        "[John Carter",
         "6.6",
         "2012",
         "132",
@@ -108,7 +113,7 @@ public class CsvReaderTest {
         "Polly Walker",
         "English",
         "USA]",
-      "[Batman v Superman: Dawn of Justice",
+        "[Batman v Superman: Dawn of Justice",
         "6.9",
         "2016",
         "183",
@@ -121,7 +126,7 @@ public class CsvReaderTest {
         "Lauren Cohan",
         "Alan D. Purwin",
         "English",
-        "USA]" };
+        "USA]"};
     assertThat(expectedResult).isEqualTo(actualResult);
   }
 }
