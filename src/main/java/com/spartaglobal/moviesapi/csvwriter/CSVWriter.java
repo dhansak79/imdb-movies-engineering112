@@ -1,17 +1,17 @@
-package com.spartaglobal.moviesapi.writecsvfile;
+package com.spartaglobal.moviesapi.csvwriter;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
-public class WriteOutCSVFile {
+public class CSVWriter {
 
   //Private constructor for utility class
-  private WriteOutCSVFile() {
+  private CSVWriter() {
   }
 
-  public static Boolean writeOutCSVFile(List<String[]> films, String writeOutFile) {
+  public static Boolean writeListOfStringsToCSV(List<String[]> films, String writeOutFile) {
     try
         (BufferedWriter buffWrite = new BufferedWriter(new FileWriter(writeOutFile, false))) {
       for (String[] film : films) {
@@ -28,7 +28,7 @@ public class WriteOutCSVFile {
 
   }
 
-  public static Boolean corruptData(String invalidLine, String writeOutFile) {
+  public static Boolean writeIncorruptLinesToCSV(String invalidLine, String writeOutFile) {
 
     try
         (BufferedWriter buffWrite = new BufferedWriter(new FileWriter(writeOutFile, false))) {
