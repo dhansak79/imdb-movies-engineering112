@@ -42,7 +42,7 @@ public class CSVWriterTest {
   }
 
   @Test
-  public void inValidData() {
+  public void invalidData() {
     String inValidDataFile = "src/test/resources/TestCSV/InValidData.csv";
 
     //Invalid csv line - title ,duration, actor 3 is missing.
