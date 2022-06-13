@@ -49,4 +49,10 @@ public class LoadSteps {
     }
     return numberOfRecords;
   }
+
+  @Given("The full input file")
+  public void theFullInputFile() {
+    filePath = "src/test/resources/com/spartaglobal/moviesapi/imdb_data.csv";
+
+  }
 }
