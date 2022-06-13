@@ -137,14 +137,14 @@ public class DataValidation{
   }
 
   public static boolean isValidLanguage(String input) throws ValidateException {
-    if (input != null && input.length() <= 2) {
+    if (input == null || input.length() <= 2) {
       throw new InvalidLanguageException();
     }
     return true;
   }
 
   public static boolean isValidCountry(String input) throws ValidateException {
-    if (input != null && input.length() <= 2) {
+    if (input == null || input.length() < 2) {
       throw new InvalidCountryException();
     }
     return true;
