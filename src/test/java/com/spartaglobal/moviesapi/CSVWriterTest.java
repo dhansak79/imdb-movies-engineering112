@@ -15,7 +15,7 @@ public class CSVWriterTest {
 
   @Test
   public void writeCSVData() {
-    String writeOutFile = "src/test/resources/TestCSV/TestOutCSVFile.csv";
+    String writeOutFile = "src/test/resources/TestCSVFiles/TestOutCSVFile.csv";
 
     List<String[]> films = new ArrayList<>();
 
@@ -43,7 +43,7 @@ public class CSVWriterTest {
 
   @Test
   public void invalidData() {
-    String inValidDataFile = "src/test/resources/TestCSV/InValidData.csv";
+    String inValidDataFile = "src/test/resources/TestCSVFiles/InValidData.csv";
 
     //Invalid csv line - title ,duration, actor 3 is missing.
     String[] inValidFilm = {"","3.2","2011","","PG-13", "237000000",
@@ -55,8 +55,7 @@ public class CSVWriterTest {
 
     Boolean writeSuccessful = CSVWriter.writeListOfStringArraysToCSV(films, inValidDataFile);
 
-    //Assertions.assertTrue(writeSuccessful);
-    System.out.println(Arrays.deepToString(films.toArray()));
+    Assertions.assertTrue(writeSuccessful);
   }
 
   @Test
