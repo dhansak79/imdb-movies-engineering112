@@ -11,18 +11,19 @@ import org.apache.logging.log4j.Logger;
 public class CsvReader {
 
   private static final Logger logger = LogManager.getLogger("log");
+
   public static List<String[]> readFile(String fileName) {
     List<String[]> list = new ArrayList<>();
 
-      logger.info( "Reading file " + fileName);
+    logger.info("Reading file " + fileName);
     try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName))) {
-      bufferedReader.readLine();
+      String store = bufferedReader.readLine();
       String line;
       while ((line = bufferedReader.readLine()) != null) {
         list.add(line.split(","));
       }
     } catch (IOException e) {
-        logger.error( e.getMessage() );
+      logger.error(e.getMessage());
     }
     return list;
 
