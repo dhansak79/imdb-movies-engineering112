@@ -1,13 +1,13 @@
-package com.spartaglobal.moviesapi;
+package com.spartaglobal.moviesapi.filehandling;
 
-import com.spartaglobal.moviesapi.csvwriter.CSVWriter;
+import com.spartaglobal.moviesapi.filehandling.CsvWriter;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-class CSVWriterTest {
+class CsvWriterTest {
 
   @Test
   void writeCSVData() {
@@ -32,7 +32,7 @@ class CSVWriterTest {
     films.add(titanic);
     films.add(spiderMan);
 
-    Boolean writeSuccessful = CSVWriter.writeListOfStringArraysToCSV(films, writeOutFile);
+    Boolean writeSuccessful = CsvWriter.writeListOfStringArraysToCSV(films, writeOutFile);
 
     Assertions.assertTrue(writeSuccessful);
   }
@@ -49,7 +49,7 @@ class CSVWriterTest {
     List<String[]> films = new ArrayList<>();
     films.add(inValidFilm);
 
-    Boolean writeSuccessful = CSVWriter.writeListOfStringArraysToCSV(films, inValidDataFile);
+    Boolean writeSuccessful = CsvWriter.writeListOfStringArraysToCSV(films, inValidDataFile);
 
     Assertions.assertTrue(writeSuccessful);
   }
