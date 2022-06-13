@@ -16,7 +16,7 @@ public class CsvReader {
 
       logger.info( "Reading file " + fileName);
     try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName))) {
-      String header = bufferedReader.readLine();
+      bufferedReader.readLine();
       String line;
       while ((line = bufferedReader.readLine()) != null) {
         list.add(line.split(","));
