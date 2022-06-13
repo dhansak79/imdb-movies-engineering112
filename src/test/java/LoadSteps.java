@@ -1,3 +1,4 @@
+import com.spartaglobal.moviesapi.FileProcessor;
 import io.cucumber.java.PendingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -18,14 +19,14 @@ public class LoadSteps {
 
   @When("We attempt to load the records to the database")
   public void weAttemptToLoadTheRecordsToTheDatabase() {
-    // TODO Create class which loads database records
-    throw new PendingException();
+    FileProcessor fileProcessor = new FileProcessor();
+    fileProcessor.process(filePath);
   }
 
   @Then("{int} invalid records are written out to an error file")
   public void invalidRecordsAreWrittenOutToAnErrorFile(int expectedNumberOfInvalidRecords)
       throws IOException {
-    int actualNumberOfInvalidRecords = getNumberOfRecordsFromFile("");
+    int actualNumberOfInvalidRecords = getNumberOfRecordsFromFile("invalidRecords.csv");
 
     Assertions.assertEquals(expectedNumberOfInvalidRecords, actualNumberOfInvalidRecords);
   }
@@ -33,7 +34,7 @@ public class LoadSteps {
   @Then("{int} valid records are written out to a clean records file")
   public void validRecordsAreWrittenOutToACleanRecordsFile(int expectedNumberOfValidRecords)
       throws IOException {
-    int actualNumberOfValidRecords = getNumberOfRecordsFromFile("");
+    int actualNumberOfValidRecords = getNumberOfRecordsFromFile("cleanRecords.csv");
 
     Assertions.assertEquals(expectedNumberOfValidRecords, actualNumberOfValidRecords);
   }
