@@ -1,11 +1,7 @@
 package com.spartaglobal.moviesapi;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
-
 import com.spartaglobal.moviesapi.csvwriter.CSVWriter;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
