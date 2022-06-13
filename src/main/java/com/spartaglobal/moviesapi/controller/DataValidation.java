@@ -1,9 +1,7 @@
 package com.spartaglobal.moviesapi.controller;
 
 import com.spartaglobal.moviesapi.enums.AgeRating;
-import com.spartaglobal.moviesapi.enums.Country;
 import com.spartaglobal.moviesapi.enums.Genre;
-import com.spartaglobal.moviesapi.enums.Language;
 import com.spartaglobal.moviesapi.exceptions.ValidateException;
 import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidBudgetException;
 import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidCountryException;
@@ -17,11 +15,9 @@ import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidRati
 import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidScoreException;
 import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidTitleException;
 import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidYearException;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 
-public class DataValidation implements FilmValidation {
+public class DataValidation{
 
   public static boolean validateData(String[] array) {
     try {
@@ -46,6 +42,7 @@ public class DataValidation implements FilmValidation {
 
     return true;
   }
+
 
   public static boolean isValidLength(String[] arr) throws ValidateException {
     if (arr.length != 14) {
@@ -140,21 +137,16 @@ public class DataValidation implements FilmValidation {
   }
 
   public static boolean isValidLanguage(String input) throws ValidateException {
-    if (Language.getLanguageFromString(input) == null) {
-    throw new InvalidLanguageException();
-  }
+    if (input != null && input.length() <= 2) {
+      throw new InvalidLanguageException();
+    }
     return true;
   }
 
   public static boolean isValidCountry(String input) throws ValidateException {
-    if (Country.getCountryFromString(input) == null) {
+    if (input != null && input.length() <= 2) {
       throw new InvalidCountryException();
     }
-
-    if (input.length() <= 0) {
-      throw new InvalidCountryException();
-    }
-
     return true;
   }
 }
