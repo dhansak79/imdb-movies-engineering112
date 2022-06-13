@@ -15,5 +15,4 @@ class FilmTest {
     assertEquals(true, film.doSomething());
   }
 
-
 }
