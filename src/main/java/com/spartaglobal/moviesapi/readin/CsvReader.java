@@ -27,7 +27,6 @@ public class CsvReader {
     }
     return list;
 
-
   }
 
 }
