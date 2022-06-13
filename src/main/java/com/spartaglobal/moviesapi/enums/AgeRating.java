@@ -30,7 +30,7 @@ public enum AgeRating {
       case "TV-PG" -> AgeRating.TV_PG;
       case "TV-MA" -> AgeRating.TV_MA;
       case "TV-G" -> AgeRating.TV_G;
-      case "Approved" -> AgeRating.APPROVED;
+      case "APPROVED" -> AgeRating.APPROVED;
       case "TV-Y" -> AgeRating.TV_Y;
       case "TV-Y7" -> AgeRating.TV_Y7;
       case "NC_17" -> AgeRating.NC_17;
