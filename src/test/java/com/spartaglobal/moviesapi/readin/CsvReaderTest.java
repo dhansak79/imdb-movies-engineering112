@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 public class CsvReaderTest {
 
   @Test
-   void readFileTest() {
+  void readFileTest() {
     List<String[]> actualResult = CsvReader.readFile(
         "src/test/resources/com/spartaglobal/moviesapi/test_csv_files/test_data1.csv");
     String[] expectedResult = new String[]{"Avatar", "7.9", "2009", "178", "PG-13", "237000000",
@@ -25,21 +25,22 @@ public class CsvReaderTest {
   }
 
   @Test
-   void checkSize() {
+  void checkSize() {
     List<String[]> actualResult = CsvReader.readFile(
         "src/test/resources/com/spartaglobal/moviesapi/test_csv_files/test_data6.csv");
     assertEquals(6, actualResult.size());
   }
 
   @Test
-  @Disabled // Currently not working, will revisit
-   void fileDoesNotExist() {
+  @Disabled
+    // Currently not working, will revisit
+  void fileDoesNotExist() {
     assertThatThrownBy(() -> CsvReader.readFile("random.csv")).isInstanceOf(IOException.class)
         .hasMessageContaining("");
   }
 
   @Test
-   void readMultipleFilms() {
+  void readMultipleFilms() {
     List<String[]> actualResult = CsvReader.readFile(
         "src/test/resources/com/spartaglobal/moviesapi/test_csv_files/test_data6.csv");
     String[] avatar = {"Avatar", "7.9", "2009", "178", "PG-13", "237000000",
