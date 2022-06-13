@@ -7,10 +7,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-public class CSVWriterTest {
+class CSVWriterTest {
 
   @Test
-  public void writeCSVData() {
+  void writeCSVData() {
     String writeOutFile = "src/test/resources/TestCSVFiles/TestOutCSVFile.csv";
 
     List<String[]> films = new ArrayList<>();
@@ -38,7 +38,7 @@ public class CSVWriterTest {
   }
 
   @Test
-  public void invalidData() {
+  void invalidData() {
     String inValidDataFile = "src/test/resources/TestCSVFiles/InvalidData.csv";
 
     //Invalid csv line - title ,duration, actor 3 is missing.
@@ -56,7 +56,8 @@ public class CSVWriterTest {
 
   @Test
   @Disabled
-  public void failedToWriteToFileTest() {
+  //Can't currently throw exception so unable to assert it gets thrown
+  void failedToWriteToFileTest() {
 //    String writeOutFile = "src/test/resources/TestCSVFiles/TestOutCSVFile.csv";
 
 //    List<String[]> films = new ArrayList<>();
