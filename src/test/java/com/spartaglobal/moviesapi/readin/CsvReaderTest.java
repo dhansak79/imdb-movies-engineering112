@@ -33,8 +33,7 @@ public class CsvReaderTest {
 
   @Test
   void fileDoesNotExist() {
-    assertThatThrownBy(() -> CsvReader.readFile("random.csv")).isInstanceOf(RuntimeException.class)
-        .hasMessageContaining("The system cannot find the file specified");
+    assertThatThrownBy(() -> CsvReader.readFile("random.csv")).isInstanceOf(RuntimeException.class);
   }
 
   @Test
