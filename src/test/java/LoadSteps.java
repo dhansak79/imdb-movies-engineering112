@@ -25,14 +25,27 @@ public class LoadSteps {
   @Then("{int} invalid records are written out to an error file")
   public void invalidRecordsAreWrittenOutToAnErrorFile(int expectedNumberOfInvalidRecords)
       throws IOException {
-    BufferedReader buff = new BufferedReader(new FileReader(""));
-
-    // Doesn't expect headers in error output files
-    int actualNumberOfInvalidRecords = 0;
-    while ((buff.readLine()) != null) {
-      actualNumberOfInvalidRecords++;
-    }
+    int actualNumberOfInvalidRecords = getNumberOfRecordsFromFile("");
 
     Assertions.assertEquals(expectedNumberOfInvalidRecords, actualNumberOfInvalidRecords);
+  }
+
+  @Then("{int} valid records are written out to a clean records file")
+  public void validRecordsAreWrittenOutToACleanRecordsFile(int expectedNumberOfValidRecords)
+      throws IOException {
+    int actualNumberOfValidRecords = getNumberOfRecordsFromFile("");
+
+    Assertions.assertEquals(expectedNumberOfValidRecords, actualNumberOfValidRecords);
+  }
+
+  private int getNumberOfRecordsFromFile(String fileName) throws IOException {
+    BufferedReader buff = new BufferedReader(new FileReader(fileName));
+
+    // Doesn't expect headers in error output files
+    int numberOfRecords = 0;
+    while ((buff.readLine()) != null) {
+      numberOfRecords++;
+    }
+    return numberOfRecords;
   }
 }
