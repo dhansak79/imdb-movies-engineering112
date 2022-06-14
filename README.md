@@ -33,6 +33,10 @@ Application that cleans records, adds to a database, and then allows users to fi
 ## Quality Assurance
 *add screenshots/proof of tests, maybe how to execute a mutation test*
 
+**Used Junit for unit testing**
+
+**For End to End test used cucumber test**
+
 **The image shows the cucumber test report which shows that film data from csv has been loaded successfully**
 
 <img src="src/test/resources/testEvidence/End_To_End_Test.png" />
@@ -49,8 +53,6 @@ Application that cleans records, adds to a database, and then allows users to fi
 
 ## Contributors
 
-Team leader: Adil Salamat
-
-MVP: Adil Salamat
+Team leader: Jack Mardell
 
 Nerds: Jack Mardell, Daniel Webb, Mustapha Chedid, Luke Homer, George Heath, Youmna Naseem Khan, Ahmad Abubakar
