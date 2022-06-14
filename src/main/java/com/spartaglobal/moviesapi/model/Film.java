@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.List;
 import lombok.Data;
 
+
 @Data
 public record Film(String title, boolean score, LocalDate year, int duration, String rating,
   long budget) {}
