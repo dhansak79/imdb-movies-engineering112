@@ -1,6 +1,4 @@
-package com.spartaglobal.moviesapi.controller;
-
-import java.io.FileReader;
+package com.spartaglobal.moviesapi.controller;import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -16,7 +14,7 @@ public class ConnectionFactory {
     if (connection == null) {
 
       Properties databaseProperties = new Properties();
-      databaseProperties.load(new FileReader(""));
+      databaseProperties.load(new FileReader("src/main/resources/mysql.properties"));
 
       connection = DriverManager.getConnection
           (databaseProperties.getProperty("")
@@ -33,5 +31,4 @@ public class ConnectionFactory {
       connection.close();
       connection = null;
     }
-  }
-}
+  }}
