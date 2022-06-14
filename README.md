@@ -59,6 +59,4 @@ Run the following on the terminal
 
 ## Contributors
 
-Team leader: Jack Mardell
-
-Nerds: Jack Mardell, Daniel Webb, Mustapha Chedid, Luke Homer, George Heath, Youmna Naseem Khan, Ahmad Abubakar
+ Jack Mardell, Daniel Webb, Mustapha Chedid, Luke Homer, George Heath, Youmna Khan, Ahmad Abubakar,Adil Salamat
