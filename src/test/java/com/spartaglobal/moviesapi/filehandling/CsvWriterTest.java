@@ -1,5 +1,7 @@
 package com.spartaglobal.moviesapi.filehandling;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import com.spartaglobal.moviesapi.filehandling.CsvWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,27 +57,21 @@ class CsvWriterTest {
   }
 
   @Test
-  @Disabled
-  //Can't currently throw exception so unable to assert it gets thrown
   void failedToWriteToFileTest() {
-//    String writeOutFile = "src/test/resources/TestCSVFiles/TestOutCSVFile.csv";
+    String writeOutFile = "src/test/resources/TestCSVFiles";
 
-//    List<String[]> films = new ArrayList<>();
+    List<String[]> films = new ArrayList<>();
 
-//    //Create mockfilm to try and add
-//    String[] spiderMan = {"Spider Man", "4.2", "2012", "110", "PG-13", " 238000000",
-//        "Action|Adventure|Sci-Fi", "760505848", "Sam Raimi", "Tom Holland",
-//        "Toby Maguire", "Andrew Garfield", "English", "USA"};
+    //Create mockfilm to try and add
+    String[] spiderMan = {"Spider Man", "4.2", "2012", "110", "PG-13", " 238000000",
+        "Action|Adventure|Sci-Fi", "760505848", "Sam Raimi", "Tom Holland",
+        "Toby Maguire", "Andrew Garfield", "English", "USA"};
 
-//    films.add(spiderMan);
+    films.add(spiderMan);
 
-////    Boolean failedToWrite = CSVWriter.writeListOfStringArraysToCSV(films, writeOutFile);
+    Boolean failedToWrite = CsvWriter.writeListOfStringArraysToCSV(films, writeOutFile);
 
-//    assertThatThrownBy(() -> CSVWriter.writeListOfStringArraysToCSV(films, writeOutFile))
-//        .isInstanceOf(IOException.class);
-
-//    Assertions.assertThrows(IOException);
-//    Assertions.assertFalse(failedToWrite);
+    assertThat(failedToWrite).isFalse();
   }
 
 }
