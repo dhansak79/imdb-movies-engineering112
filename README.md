@@ -18,13 +18,25 @@
 Application that cleans records, adds to a database, and then allows users to filter and select data using an API
 
 ## Set Up
-*add setup*
+*Install the following*
+- JDK 17
+- MySQL
 
 ## Description / how to use (how to use can be separated later)
-*add description*
+**How to use**
+- Download project from intellij.
+- Create database 'films' in MySQL
+- Run schema.sql from src/main/resources/schema.sql
+- Run Maven compile to build the project.
+- Run ImdbMoviesApiApplication.java class.
 
 ## Quality Assurance
 *add screenshots/proof of tests, maybe how to execute a mutation test*
+
+**The image shows the cucumber test report which shows that film data from csv has been loaded successfully**
+
+<img src="src/test/resources/testEvidence/End_To_End_Test.png" />
+
 
 ## (Optional) Creation Process
 *add how we tackled this project, the steps we took and what order, optional as it can be combined with diffictuties.
