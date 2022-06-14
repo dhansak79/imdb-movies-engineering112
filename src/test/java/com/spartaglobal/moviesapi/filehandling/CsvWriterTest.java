@@ -44,9 +44,9 @@ class CsvWriterTest {
     String inValidDataFile = "src/test/resources/TestCSVFiles/InvalidData.csv";
 
     //Invalid csv line - title ,duration, actor 3 is missing.
-    String[] inValidFilm = {"","3.2","2011","","PG-13", "237000000",
-        "Action|Adventure|Fantasy|Sci-Fi", "760505847","James Cameron","CCH Pounder",
-        "Joel David Moore","","English","USA"};
+    String[] inValidFilm = {"", "3.2", "2011", "", "PG-13", "237000000",
+        "Action|Adventure|Fantasy|Sci-Fi", "760505847", "James Cameron", "CCH Pounder",
+        "Joel David Moore", "", "English", "USA"};
 
     List<String[]> films = new ArrayList<>();
     films.add(inValidFilm);
