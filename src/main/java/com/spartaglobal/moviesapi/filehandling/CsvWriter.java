@@ -4,8 +4,12 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class CsvWriter {
+
+  private static final Logger logger = LogManager.getLogger("CsvWriter");
 
   //Private constructor for utility class
   private CsvWriter() {
@@ -22,7 +26,7 @@ public class CsvWriter {
       return true;
 
     } catch (IOException ioe) {
-      System.out.println(ioe.getMessage());
+      logger.error(ioe.getMessage());
       return false;
     }
 
