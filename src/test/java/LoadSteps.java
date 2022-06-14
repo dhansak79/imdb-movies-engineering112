@@ -14,7 +14,8 @@ public class LoadSteps {
 
   @Given("An input file with five valid and five invalid records")
   public void anInputFileWithFiveValidAndFiveInvalidRecords() {
-    filePath = "src/test/resources/testdatafiles/5Valid5InvalidRecords.csv";
+    //filePath = "src/test/resources/testdatafiles/5Valid5InvalidRecords.csv";
+    filePath = "src/main/resources/imdb_data.csv";
   }
 
   @When("We attempt to load the records to the database")

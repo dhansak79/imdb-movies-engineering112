@@ -1,17 +1,16 @@
 package com.spartaglobal.moviesapi.dto;
 
-import java.time.LocalDate;
+
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@NoArgsConstructor
 public class FilmDto {
 
   @Id
@@ -20,10 +19,9 @@ public class FilmDto {
   @Column(nullable = false, length = 100)
   private String title;
   @Column(nullable = false)
-  private boolean score;
+  private double score;
   @Column(nullable = false)
-  @Temporal(TemporalType.DATE)
-  private LocalDate year;
+  private int year;
   @Column(nullable = false)
   private int duration;
   @Column(nullable = false, length = 10)
@@ -44,11 +42,11 @@ public class FilmDto {
   @Column(nullable = false, length = 150)
   private String actor3;
   @Column(nullable = false, length = 60)
-  private String Language;
+  private String language;
   @Column(nullable = false, length = 70)
   private String country;
 
-  public FilmDto(long id, String title, boolean score, LocalDate year, int duration, String rating,
+  public FilmDto(long id, String title, double score, int year, int duration, String rating,
       long budget, String genre, long gross, String director, String actor1, String actor2,
       String actor3, String language, String country) {
     this.id = id;
@@ -64,11 +62,11 @@ public class FilmDto {
     this.actor1 = actor1;
     this.actor2 = actor2;
     this.actor3 = actor3;
-    Language = language;
+    this.language = language;
     this.country = country;
   }
 
-  public FilmDto(String title, boolean score, LocalDate year, int duration, String rating,
+  public FilmDto(String title, double score, int year, int duration, String rating,
       long budget, String genre, long gross, String director, String actor1, String actor2,
       String actor3, String language, String country) {
     this.title = title;
@@ -83,7 +81,7 @@ public class FilmDto {
     this.actor1 = actor1;
     this.actor2 = actor2;
     this.actor3 = actor3;
-    Language = language;
+    this.language = language;
     this.country = country;
   }
 
@@ -95,11 +93,11 @@ public class FilmDto {
     return title;
   }
 
-  public boolean isScore() {
+  public double getScore() {
     return score;
   }
 
-  public LocalDate getYear() {
+  public int getYear() {
     return year;
   }
 
@@ -140,7 +138,7 @@ public class FilmDto {
   }
 
   public String getLanguage() {
-    return Language;
+    return language;
   }
 
   public String getCountry() {
@@ -155,11 +153,11 @@ public class FilmDto {
     this.title = title;
   }
 
-  public void setScore(boolean score) {
+  public void setScore(double score) {
     this.score = score;
   }
 
-  public void setYear(LocalDate year) {
+  public void setYear(int year) {
     this.year = year;
   }
 
@@ -200,7 +198,7 @@ public class FilmDto {
   }
 
   public void setLanguage(String language) {
-    Language = language;
+    language = language;
   }
 
   public void setCountry(String country) {
@@ -218,16 +216,16 @@ public class FilmDto {
     FilmDto filmDto = (FilmDto) o;
     return id == filmDto.id && score == filmDto.score && duration == filmDto.duration
         && budget == filmDto.budget && gross == filmDto.gross && title.equals(filmDto.title)
-        && year.equals(filmDto.year) && rating.equals(filmDto.rating) && genre.equals(filmDto.genre)
+        && year == filmDto.year && rating.equals(filmDto.rating) && genre.equals(filmDto.genre)
         && director.equals(filmDto.director) && actor1.equals(filmDto.actor1) && actor2.equals(
-        filmDto.actor2) && actor3.equals(filmDto.actor3) && Language.equals(filmDto.Language)
+        filmDto.actor2) && actor3.equals(filmDto.actor3) && language.equals(filmDto.language)
         && country.equals(filmDto.country);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(id, title, score, year, duration, rating, budget, genre, gross, director,
-        actor1, actor2, actor3, Language, country);
+        actor1, actor2, actor3, language, country);
   }
 
   @Override
@@ -246,7 +244,7 @@ public class FilmDto {
         ", actor1='" + actor1 + '\'' +
         ", actor2='" + actor2 + '\'' +
         ", actor3='" + actor3 + '\'' +
-        ", Language='" + Language + '\'' +
+        ", Language='" + language + '\'' +
         ", country='" + country + '\'' +
         '}';
   }
