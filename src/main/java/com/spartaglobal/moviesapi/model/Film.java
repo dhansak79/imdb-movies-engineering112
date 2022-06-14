@@ -8,16 +8,8 @@ import lombok.Data;
 
 @Data
 public record Film(String title, boolean score, LocalDate year, int duration, String rating,
-  long budget) {}
-//  private Genre genre;
-//  private List<Genre> genres;
-//  private long gross;
-//  private String director;
-//  private String actor1;
-//  private String actor2;
-//  private String actor3;
-//  private String Language;
-//  private String country;
+  long budget, String genre, long gross, String director, String actor1, String actor2,
+  String actor3, String Language, String country
 
                    //  DateTimeFormatter format = new DateTimeFormatterBuilder()
 //      .appendPattern("yyyy")
@@ -27,3 +19,4 @@ public record Film(String title, boolean score, LocalDate year, int duration, St
 //
 //  private LocalDate year = LocalDate.parse("2008", format);
 //)
+) {}
