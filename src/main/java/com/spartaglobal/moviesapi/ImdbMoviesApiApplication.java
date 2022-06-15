@@ -1,8 +1,6 @@
 package com.spartaglobal.moviesapi;
 
-import com.spartaglobal.moviesapi.dto.Film;
 import com.spartaglobal.moviesapi.repository.FilmRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -25,5 +23,4 @@ public class ImdbMoviesApiApplication {
       this.filmRepository = filmRepo;
     };
   }
-
 }
