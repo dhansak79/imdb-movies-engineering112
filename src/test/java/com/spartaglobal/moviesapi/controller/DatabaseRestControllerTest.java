@@ -38,7 +38,6 @@ class DatabaseRestControllerTest {
   @Autowired
   private ObjectMapper mapper;
 
-  @Disabled
   @Test
   public void testGetAllMovies() throws Exception {
     // Given

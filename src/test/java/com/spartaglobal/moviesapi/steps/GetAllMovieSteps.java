@@ -3,7 +3,9 @@ package com.spartaglobal.moviesapi.steps;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.jupiter.api.Disabled;
 
+@Disabled
 public class GetAllMovieSteps {
 
   @Given("the API has a get all movies endpoint")
