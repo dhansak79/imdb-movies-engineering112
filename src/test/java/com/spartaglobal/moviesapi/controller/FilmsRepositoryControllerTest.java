@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @DataJpaTest
 @ActiveProfiles("dev")
-class FilmsRestControllerTest {
+class FilmsRepositoryControllerTest {
 
   @Autowired
   private FilmRepository repo;
