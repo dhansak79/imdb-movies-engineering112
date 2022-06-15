@@ -3,6 +3,7 @@ package com.spartaglobal.moviesapi.steps;
 import com.spartaglobal.moviesapi.FileProcessor;
 import com.spartaglobal.moviesapi.dto.Film;
 import com.spartaglobal.moviesapi.exceptions.NoFilmsInDatabaseException;
+import com.spartaglobal.moviesapi.repository.FilmRepository;
 import com.spartaglobal.moviesapi.service.FilmService;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -19,6 +20,9 @@ public final class FullLoadAndCleanCsvFileSteps {
   @Autowired
   private FilmService service;
 
+  @Autowired
+  private FilmRepository filmRepository;
+
   private String filePath = "";
 
   @Given("An input file with five valid and five invalid records")
@@ -29,7 +33,7 @@ public final class FullLoadAndCleanCsvFileSteps {
 
   @When("We attempt to clean the records")
   public void weAttemptToCleanTheRecords() {
-    FileProcessor fileProcessor = new FileProcessor();
+    FileProcessor fileProcessor = new FileProcessor(filmRepository);
     fileProcessor.cleanFile(filePath);
   }
 
@@ -56,7 +60,7 @@ public final class FullLoadAndCleanCsvFileSteps {
 
   @When("We attempt to load the records to the database")
   public void weAttemptToLoadTheRecordsToTheDatabase() {
-    FileProcessor fileProcessor = new FileProcessor();
+    FileProcessor fileProcessor = new FileProcessor(filmRepository);
     fileProcessor.process(filePath);
   }
 
