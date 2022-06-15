@@ -11,21 +11,24 @@ public class ConnectionFactory {
 
   private static Connection connection = null;
 
-  public static Connection getConnection() throws IOException, SQLException {
+  public static Connection getConnection() {
+    try {
+      if (connection == null || connection.isClosed()) {
 
-    if (connection == null || connection.isClosed()) {
+        Properties databaseProperties = new Properties();
+        databaseProperties.load(new FileReader("src/main/resources/mysql.properties"));
 
-      Properties databaseProperties = new Properties();
-      databaseProperties.load(new FileReader("src/main/resources/mysql.properties"));
-
-      connection = DriverManager.getConnection
-          (databaseProperties.getProperty("dburl")
-              , databaseProperties.getProperty("dbuserid"),
-              databaseProperties.getProperty("dbpassword"));
-
+        connection = DriverManager.getConnection
+            (databaseProperties.getProperty("dburl")
+                , databaseProperties.getProperty("dbuserid"),
+                databaseProperties.getProperty("dbpassword"));
+      }
+    }catch (SQLException | IOException e){
+      e.printStackTrace();
     }
     return connection;
   }
+
 
   public static void closeConnection() throws SQLException {
     if (connection != null) {

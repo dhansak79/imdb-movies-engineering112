@@ -82,11 +82,8 @@ public class FileProcessor {
   private void loader(List<FilmDto> films) {
     PreparedStatement preparedStatement;
     Connection con;
-    try {
       con = ConnectionFactory.getConnection();
-    } catch (IOException | SQLException e) {
-      throw new RuntimeException(e);
-    }
+
     try {
       preparedStatement = con.prepareStatement(SQL_STATEMENT);
       for (FilmDto film : films) {
