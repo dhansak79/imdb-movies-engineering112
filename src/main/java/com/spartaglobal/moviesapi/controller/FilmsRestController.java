@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("")
-public class DatabaseRestController {
+public class FilmsRestController {
 
   @Autowired
   private final FilmService service;
 
-  public DatabaseRestController(FilmService service){
+  public FilmsRestController(FilmService service){
     super();
     this.service = service;
   }
