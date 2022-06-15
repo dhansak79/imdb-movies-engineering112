@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   <distributionManagement>
     <repository>
-      <id>github</id>
+      <id>GitHub</id>
       <name>GitHub Packages</name>
       <url>https://maven.pkg.github.com/dhansak79/imdb-movies-engineering112</url>
     </repository>
@@ -22,7 +22,6 @@
   <version>1.0.0</version>
   <name>IMDB-Movies-API</name>
   <description>A restful API application containing clean records from a CSV file.</description>
-  
 
 
   <properties>
@@ -131,6 +130,12 @@
       <version>0.8.8</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-deploy-plugin</artifactId>
+      <version>3.0.0-M2</version>
+    </dependency>
+
   </dependencies>
 
   <profiles>
@@ -218,6 +223,13 @@
               <artifactId>lombok</artifactId>
             </exclude>
           </excludes>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <configuration>
+          <altDeploymentRepository>GitHub::https://maven.pkg.github.com/dhansak79/imdb-movies-engineering112</altDeploymentRepository>
         </configuration>
       </plugin>
 
