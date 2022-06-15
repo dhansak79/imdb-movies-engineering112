@@ -10,10 +10,13 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class ImdbMoviesApiApplication {
 
   public static void main(String[] args) {
-    String filepath = args[0];
+    String filePath = args[0];
+    if (filePath.isBlank()) {
+      filePath = "src/main/resources/imdb_data.csv";
+    }
     ConfigurableApplicationContext appContext = SpringApplication.run(
         ImdbMoviesApiApplication.class, args);
     DataLoader dataLoader = appContext.getBean(DataLoader.class);
-    dataLoader.load(filepath);
+    dataLoader.load(filePath);
   }
 }
