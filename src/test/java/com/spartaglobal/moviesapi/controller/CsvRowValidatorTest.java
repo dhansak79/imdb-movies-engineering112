@@ -171,8 +171,13 @@ class CsvRowValidatorTest {
 
   @Test
   void invalidGenreTest() {
+    FilmCsvRow film = new FilmCsvRow("Avatar", "7.9", "2009", "178",
+        "PG-13",
+        "237000000", "Invalid movies genre", "760505847", "James Cameron", "CCH Pounder",
+        "Joel David Moore", "Wes Studi", "English", "USA");
+
     Throwable throwable = assertThrows(InvalidGenreException.class,
-        () -> GenreValidationRule.validate("Invalid movies genre"));
+        () -> new GenreValidationRule().validate(film));
 
     assertEquals("Invalid movies genre", throwable.getMessage());
   }

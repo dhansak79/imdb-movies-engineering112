@@ -16,6 +16,7 @@ public class CsvRowValidator {
     rules.add(new YearValidationRule());
     rules.add(new CountryValidationRule());
     rules.add(new DurationValidationRule());
+    rules.add(new GenreValidationRule());
 
     for (FilmValidationRule rule : rules) {
       try {

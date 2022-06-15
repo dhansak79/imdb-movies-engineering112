@@ -4,15 +4,14 @@ import com.spartaglobal.moviesapi.exceptions.ValidateException;
 import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidGenreException;
 import com.spartaglobal.moviesapi.model.enums.Genre;
 
-public class GenreValidationRule {
+public class GenreValidationRule implements FilmValidationRule {
 
-  public static boolean validate(String input) throws ValidateException {
-    String[] genres = input.split("\\|");
+  public void validate(FilmCsvRow films) throws ValidateException {
+    String[] genres = films.getGenre().split("\\|");
     for (String s : genres) {
       if (Genre.getGenreFromString(s) == null) {
         throw new InvalidGenreException();
       }
     }
-    return true;
   }
 }
