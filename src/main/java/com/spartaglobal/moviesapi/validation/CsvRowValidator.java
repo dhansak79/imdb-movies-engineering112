@@ -6,17 +6,27 @@ import java.util.List;
 
 public class CsvRowValidator {
 
-  public static boolean validateData(String[] array) {
-    FilmCsvRow film = new FilmCsvRow(array[0], array[1], array[2], array[3], array[4],
-        array[5], array[6], array[7], array[8], array[9], array[10], array[11], array[12],
-        array[13]);
+  public static boolean validateData(String[] csvRow) {
+    if (csvRow.length != 14) {
+      return false;
+    }
+
+    FilmCsvRow film = new FilmCsvRow(csvRow[0], csvRow[1], csvRow[2], csvRow[3], csvRow[4],
+        csvRow[5], csvRow[6], csvRow[7], csvRow[8], csvRow[9], csvRow[10], csvRow[11], csvRow[12],
+        csvRow[13]);
 
     List<FilmValidationRule> rules = new ArrayList<>();
     rules.add(new BudgetValidationRule());
-    rules.add(new YearValidationRule());
     rules.add(new CountryValidationRule());
     rules.add(new DurationValidationRule());
     rules.add(new GenreValidationRule());
+    rules.add(new GrossValidationRule());
+    rules.add(new LanguageValidationRule());
+    rules.add(new ActorsNamesValidationRule());
+    rules.add(new RatingValidationRule());
+    rules.add(new ScoreValidationRule());
+    rules.add(new TitleValidationRule());
+    rules.add(new YearValidationRule());
 
     for (FilmValidationRule rule : rules) {
       try {

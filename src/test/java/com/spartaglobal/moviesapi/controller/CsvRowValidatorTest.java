@@ -9,12 +9,12 @@ import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidDura
 import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidGenreException;
 import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidGross;
 import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidLanguageException;
-import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidLengthException;
 import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidNameException;
 import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidRatingException;
 import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidScoreException;
 import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidTitleException;
 import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidYearException;
+import com.spartaglobal.moviesapi.validation.ActorsNamesValidationRule;
 import com.spartaglobal.moviesapi.validation.BudgetValidationRule;
 import com.spartaglobal.moviesapi.validation.CountryValidationRule;
 import com.spartaglobal.moviesapi.validation.CsvRowValidator;
@@ -23,8 +23,6 @@ import com.spartaglobal.moviesapi.validation.FilmCsvRow;
 import com.spartaglobal.moviesapi.validation.GenreValidationRule;
 import com.spartaglobal.moviesapi.validation.GrossValidationRule;
 import com.spartaglobal.moviesapi.validation.LanguageValidationRule;
-import com.spartaglobal.moviesapi.validation.LengthValidationRule;
-import com.spartaglobal.moviesapi.validation.NameValidationRule;
 import com.spartaglobal.moviesapi.validation.RatingValidationRule;
 import com.spartaglobal.moviesapi.validation.ScoreValidationRule;
 import com.spartaglobal.moviesapi.validation.TitleValidationRule;
@@ -54,25 +52,25 @@ class CsvRowValidatorTest {
   }
 
   @Test
-  void invalidDataLengthTest() {
-    Throwable throwable = assertThrows(InvalidLengthException.class, () ->
-        LengthValidationRule.validate(INVALID_DATA_LENGTH_SAMPLE));
-
-    assertEquals("Incomplete length of data", throwable.getMessage());
-  }
-
-  @Test
   void invalidTitleTest() {
+    FilmCsvRow film = new FilmCsvRow("", "7.9", "2009", "178",
+        "PG-13",
+        "237000000", "Action|Adventure|Fantasy|Sci-Fi", "760505847", "James Cameron", "CCH Pounder",
+        "Joel David Moore", "Wes Studi", "English", "USA");
     Throwable throwable = assertThrows(InvalidTitleException.class, () ->
-        TitleValidationRule.validate(""));
+        new TitleValidationRule().validate(film));
 
     assertEquals("Invalid movie title", throwable.getMessage());
   }
 
   @Test
   void invalidScoreTest() {
+    FilmCsvRow film = new FilmCsvRow("Avatar", "seven", "2009", "178",
+        "PG-13",
+        "237000000", "Action|Adventure|Fantasy|Sci-Fi", "760505847", "James Cameron", "CCH Pounder",
+        "Joel David Moore", "Wes Studi", "English", "USA");
     Throwable throwable = assertThrows(InvalidScoreException.class, () ->
-        ScoreValidationRule.validate("seven"));
+        new ScoreValidationRule().validate(film));
 
     assertEquals("Invalid score", throwable.getMessage());
   }
@@ -139,32 +137,60 @@ class CsvRowValidatorTest {
 
   @Test
   void invalidRatingTest() {
-    Throwable throwable = assertThrows(InvalidRatingException.class,
-        () -> RatingValidationRule.validate("6713"));
+    FilmCsvRow film = new FilmCsvRow("Avatar", "7.9", "2009", "178",
+        "6713",
+        "237000000", "Action|Adventure|Fantasy|Sci-Fi", "760505847", "James Cameron", "CCH Pounder",
+        "Joel David Moore", "Wes Studi", "English", "USA");
+    Throwable throwable = assertThrows(InvalidRatingException.class, () ->
+        new RatingValidationRule().validate(film));
 
     assertEquals("Film rating is invalid", throwable.getMessage());
   }
 
   @Test
   void invalidGrossTest() {
-    Throwable throwable = assertThrows(InvalidGross.class,
-        () -> GrossValidationRule.validate("19515.151"));
+    FilmCsvRow film = new FilmCsvRow("Avatar", "7.9", "2009", "178",
+        "PG-13",
+        "237000000", "Action|Adventure|Fantasy|Sci-Fi", "19515.151", "James Cameron", "CCH Pounder",
+        "Joel David Moore", "Wes Studi", "English", "USA");
+    Throwable throwable = assertThrows(InvalidGross.class, () ->
+        new GrossValidationRule().validate(film));
 
     assertEquals("Gross is invalid. Gross must be a whole number.", throwable.getMessage());
   }
 
   @Test
-  void invalidNameTest() {
-    Throwable throwable = assertThrows(InvalidNameException.class,
-        () -> NameValidationRule.validate(""));
+  void invalidActor1NameTest() {
+    FilmCsvRow film = new FilmCsvRow("Avatar", "7.9", "2009", "178",
+        "PG-13",
+        "237000000", "Action|Adventure|Fantasy|Sci-Fi", "760505847", "James Cameron", "",
+        "Joel David Moore", "Wes Studi", "English", "USA");
+    Throwable throwable = assertThrows(InvalidNameException.class, () ->
+        new ActorsNamesValidationRule().validate(film));
 
     assertEquals("Name is invalid.", throwable.getMessage());
   }
 
   @Test
-  void invalidNameNullTest() {
-    Throwable throwable = assertThrows(InvalidNameException.class,
-        () -> NameValidationRule.validate(null));
+  void invalidActor2NameTest() {
+    FilmCsvRow film = new FilmCsvRow("Avatar", "7.9", "2009", "178",
+        "PG-13",
+        "237000000", "Action|Adventure|Fantasy|Sci-Fi", "760505847", "James Cameron", "Joel David Moore",
+        "", "Wes Studi", "English", "USA");
+    Throwable throwable = assertThrows(InvalidNameException.class, () ->
+        new ActorsNamesValidationRule().validate(film));
+
+    assertEquals("Name is invalid.", throwable.getMessage());
+  }
+
+  @Test
+  void invalidActor3NameTest() {
+    FilmCsvRow film = new FilmCsvRow("Avatar", "7.9", "2009", "178",
+        "PG-13",
+        "237000000", "Action|Adventure|Fantasy|Sci-Fi", "760505847", "James Cameron", "Joel David Moore",
+        "Wes Studi", "", "English", "USA");
+    Throwable throwable = assertThrows(InvalidNameException.class, () ->
+        new ActorsNamesValidationRule().validate(film));
 
     assertEquals("Name is invalid.", throwable.getMessage());
   }
@@ -184,8 +210,12 @@ class CsvRowValidatorTest {
 
   @Test
   void invalidLanguageTest() {
-    Throwable throwable = assertThrows(InvalidLanguageException.class,
-        () -> LanguageValidationRule.validate(""));
+    FilmCsvRow film = new FilmCsvRow("Avatar", "7.9", "2009", "178",
+        "PG-13",
+        "237000000", "Action|Adventure|Fantasy|Sci-Fi", "760505847", "James Cameron", "CCH Pounder",
+        "Joel David Moore", "Wes Studi", "", "USA");
+    Throwable throwable = assertThrows(InvalidLanguageException.class, () ->
+        new LanguageValidationRule().validate(film));
 
     assertEquals("Invalid Language Detected", throwable.getMessage());
   }

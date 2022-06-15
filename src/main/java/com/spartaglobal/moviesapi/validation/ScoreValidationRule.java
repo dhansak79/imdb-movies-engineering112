@@ -3,14 +3,13 @@ package com.spartaglobal.moviesapi.validation;
 import com.spartaglobal.moviesapi.exceptions.ValidateException;
 import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidScoreException;
 
-public class ScoreValidationRule {
+public class ScoreValidationRule implements FilmValidationRule {
 
-  public static boolean validate(String input) throws ValidateException {
+  public void validate(FilmCsvRow filmCsvRow) throws ValidateException {
     try {
-      Double.parseDouble(input);
+      Double.parseDouble(filmCsvRow.getScore());
     } catch (NumberFormatException nfe) {
       throw new InvalidScoreException();
     }
-    return true;
   }
 }

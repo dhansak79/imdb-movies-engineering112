@@ -3,14 +3,13 @@ package com.spartaglobal.moviesapi.validation;
 import com.spartaglobal.moviesapi.exceptions.ValidateException;
 import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidGross;
 
-public class GrossValidationRule {
+public class GrossValidationRule implements FilmValidationRule {
 
-  public static boolean validate(String input) throws ValidateException {
+  public void validate(FilmCsvRow film) throws ValidateException {
     try {
-      Long.parseLong(input);
+      Long.parseLong(film.getGross());
     } catch (NumberFormatException nfe) {
       throw new InvalidGross();
     }
-    return true;
   }
 }

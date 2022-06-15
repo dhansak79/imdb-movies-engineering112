@@ -3,12 +3,11 @@ package com.spartaglobal.moviesapi.validation;
 import com.spartaglobal.moviesapi.exceptions.ValidateException;
 import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidTitleException;
 
-public class TitleValidationRule {
+public class TitleValidationRule implements FilmValidationRule {
 
-  public static boolean validate(String input) throws ValidateException {
-    if (input.length() <= 0) {
+  public void validate(FilmCsvRow film) throws ValidateException {
+    if (film.getTitle().length() <= 0) {
       throw new InvalidTitleException();
     }
-    return true;
   }
 }

@@ -1,5 +1,7 @@
 package com.spartaglobal.moviesapi.validation;
 
+import java.util.List;
+
 public class FilmCsvRow {
 
   private String title;
@@ -71,6 +73,10 @@ public class FilmCsvRow {
 
   public String getDirector() {
     return director;
+  }
+
+  public List<String> getActors() {
+    return List.of(getActor1(), getActor2(), getActor3());
   }
 
   public String getActor1() {
