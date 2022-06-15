@@ -7,17 +7,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DbUtils {
-  public static PreparedStatement getPreparedStatement( String sqlStatement, Object[] arguments ) {
+
+  public static PreparedStatement getPreparedStatement(String sqlStatement, Object[] arguments) {
     PreparedStatement preparedStatement = null;
     try {
       Connection connection = ConnectionFactory.getConnection();
-      preparedStatement = connection.prepareStatement( sqlStatement );
+      preparedStatement = connection.prepareStatement(sqlStatement);
       int i = 1;
-      for ( Object argument : arguments ) {
-        preparedStatement.setObject( i, argument );
+      for (Object argument : arguments) {
+        preparedStatement.setObject(i, argument);
         i++;
       }
-    } catch ( SQLException e ) {
+    } catch (SQLException e) {
       e.printStackTrace();
     } catch (IOException e) {
       throw new RuntimeException(e);
@@ -25,25 +26,25 @@ public class DbUtils {
     return preparedStatement;
   }
 
-  public static int executeUpdate( String sqlStatement, Object[] arguments ) {
+  public static int executeUpdate(String sqlStatement, Object[] arguments) {
     int rowsAffected = 0;
-    PreparedStatement preparedStatement = getPreparedStatement( sqlStatement, arguments );
+    PreparedStatement preparedStatement = getPreparedStatement(sqlStatement, arguments);
     try {
       rowsAffected = preparedStatement.executeUpdate();
-    } catch ( SQLException e ) {
+    } catch (SQLException e) {
       e.printStackTrace();
     }
     //TODO add logging properly
-    System.out.println( rowsAffected + " rows were affected." );
+    System.out.println(rowsAffected + " rows were affected.");
     return rowsAffected;
   }
 
-  public static ResultSet executeQuery( String sqlStatement, String[] arguments ) {
+  public static ResultSet executeQuery(String sqlStatement, String[] arguments) {
     ResultSet resultSet = null;
-    PreparedStatement preparedStatement = getPreparedStatement( sqlStatement, arguments );
+    PreparedStatement preparedStatement = getPreparedStatement(sqlStatement, arguments);
     try {
       resultSet = preparedStatement.executeQuery();
-    } catch ( SQLException e ) {
+    } catch (SQLException e) {
       e.printStackTrace();
     }
     return resultSet;

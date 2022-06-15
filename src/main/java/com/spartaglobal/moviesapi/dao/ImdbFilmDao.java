@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
-public class ImdbFilmDao implements FilmDao{
+public class ImdbFilmDao implements FilmDao {
 
   @Override
   public Optional get(int id) {
@@ -46,12 +46,13 @@ public class ImdbFilmDao implements FilmDao{
         """;
 
     Object[] arguments = new Object[]{film.getTitle(), film.getScore(), film.getYear(),
-    film.getDuration(), film.getRating(), film.getBudget(), film.getGenre(), film.getGross(),
-    film.getDirector(), film.getActor1(), film.getActor2(), film.getActor3(), film.getLanguage(),
+        film.getDuration(), film.getRating(), film.getBudget(), film.getGenre(), film.getGross(),
+        film.getDirector(), film.getActor1(), film.getActor2(), film.getActor3(),
+        film.getLanguage(),
         film.getCountry()
     };
 
-  return DbUtils.executeUpdate( sqlStatement, arguments );
+    return DbUtils.executeUpdate(sqlStatement, arguments);
   }
 
   @Override

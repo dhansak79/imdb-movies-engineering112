@@ -6,7 +6,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface FilmDao<T> {
-  Optional<T> get( int id);
+
+  Optional<T> get(int id);
 
   List<Film> getAll() throws SQLException;
 
@@ -16,5 +17,5 @@ public interface FilmDao<T> {
 
   void update(T t, String[] params);
 
-  int delete( T t);
+  int delete(T t);
 }

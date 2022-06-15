@@ -16,5 +16,4 @@ CREATE TABLE IF NOT EXISTS films (
   actor3 VARCHAR(150) NOT NULL COMMENT 'featured actor of the film',
   film_language VARCHAR(60) NOT NULL COMMENT 'films spoken language',
   country VARCHAR(70) NOT NULL COMMENT 'the country that produced the film'
-
 );

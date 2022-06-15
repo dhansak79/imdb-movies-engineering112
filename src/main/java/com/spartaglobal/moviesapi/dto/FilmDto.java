@@ -1,15 +1,16 @@
 package com.spartaglobal.moviesapi.dto;
 
-
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Table(name = "films")
 @NoArgsConstructor
 public class FilmDto {
 
