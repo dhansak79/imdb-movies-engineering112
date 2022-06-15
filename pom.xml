@@ -19,7 +19,7 @@
   </parent>
   <groupId>com.spartaglobal</groupId>
   <artifactId>IMDB-Movies-API</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0</version>
   <name>IMDB-Movies-API</name>
   <description>A restful API application containing clean records from a CSV file.</description>
   
