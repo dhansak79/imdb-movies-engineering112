@@ -200,7 +200,7 @@ public class Film {
   }
 
   public void setLanguage(String language) {
-    language = language;
+    this.language = language;
   }
 
   public void setCountry(String country) {
