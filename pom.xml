@@ -9,6 +9,11 @@
       <name>GitHub Packages</name>
       <url>https://maven.pkg.github.com/dhansak79/imdb-movies-engineering112</url>
     </repository>
+    <snapshotRepository>
+      <id>GitHub</id>
+      <name>GitHub Packages</name>
+      <url>https://maven.pkg.github.com/dhansak79/imdb-movies-engineering112</url>
+    </snapshotRepository>
   </distributionManagement>
 
   <parent>
@@ -229,7 +234,9 @@
       <plugin>
         <artifactId>maven-deploy-plugin</artifactId>
         <configuration>
-          <altDeploymentRepository>GitHub::https://maven.pkg.github.com/dhansak79/imdb-movies-engineering112</altDeploymentRepository>
+          <altDeploymentRepository>
+            GitHub::https://maven.pkg.github.com/dhansak79/imdb-movies-engineering112
+          </altDeploymentRepository>
         </configuration>
       </plugin>
 
