@@ -1,6 +1,6 @@
 package com.spartaglobal.moviesapi.validation;
 
-import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidBudgetException;
+import com.spartaglobal.moviesapi.validation.exceptions.ValidateMoviesException.InvalidBudgetException;
 
 public class BudgetValidationRule implements FilmValidationRule {
 

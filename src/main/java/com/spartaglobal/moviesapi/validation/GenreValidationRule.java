@@ -1,7 +1,7 @@
 package com.spartaglobal.moviesapi.validation;
 
-import com.spartaglobal.moviesapi.exceptions.ValidateException;
-import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidGenreException;
+import com.spartaglobal.moviesapi.validation.exceptions.ValidateException;
+import com.spartaglobal.moviesapi.validation.exceptions.ValidateMoviesException.InvalidGenreException;
 import com.spartaglobal.moviesapi.model.enums.Genre;
 
 public class GenreValidationRule implements FilmValidationRule {

@@ -1,4 +1,4 @@
-package com.spartaglobal.moviesapi.controller;
+package com.spartaglobal.moviesapi.model;
 
 import com.spartaglobal.moviesapi.model.Film;
 

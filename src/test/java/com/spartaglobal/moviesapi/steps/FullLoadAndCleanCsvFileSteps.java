@@ -1,8 +1,8 @@
 package com.spartaglobal.moviesapi.steps;
 
-import com.spartaglobal.moviesapi.controller.FileProcessor;
+import com.spartaglobal.moviesapi.filehandling.FileProcessor;
 import com.spartaglobal.moviesapi.model.Film;
-import com.spartaglobal.moviesapi.exceptions.NoFilmsInDatabaseException;
+import com.spartaglobal.moviesapi.service.exceptions.NoFilmsInDatabaseException;
 import com.spartaglobal.moviesapi.repository.FilmRepository;
 import com.spartaglobal.moviesapi.service.FilmService;
 import io.cucumber.java.en.Given;

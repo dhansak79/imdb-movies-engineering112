@@ -1,6 +1,6 @@
 package com.spartaglobal.moviesapi.validation;
 
-import com.spartaglobal.moviesapi.exceptions.ValidateException;
+import com.spartaglobal.moviesapi.validation.exceptions.ValidateException;
 
 public interface FilmValidationRule {
 
