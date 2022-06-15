@@ -20,12 +20,6 @@ Application that cleans records, adds to a database, and then allows users to fi
 ## Set Up
 *Software Requirements*
 - JDK 17
-- MySQL
-
-*Setup database*
-- Create database 'films' in MySQL
-- Run schema.sql from src/main/resources/schema.sql
-- Create mysql.properties file and put username and password.
 
 ## Description / how to use (how to use can be separated later)
 **How to use**
