@@ -41,7 +41,7 @@ public class FileProcessor {
   }
 
   public void cleanFile(String filePath) {
-    List<String[]> rawRecords = CsvReader.readFileWithHeaders(filePath);
+    List<String[]> rawRecords = CsvReader.readCSVFile(filePath, true);
     List<String[]> validRecords = new ArrayList<>();
     List<String[]> invalidRecords = new ArrayList<>();
 
@@ -61,7 +61,7 @@ public class FileProcessor {
 
   public void loadDb(String filePath) {
     FilmFactory filmFactory = new FilmFactory();
-    List<String[]> filmList = CsvReader.readFileWithoutHeaders(filePath);
+    List<String[]> filmList = CsvReader.readCSVFile(filePath, false);
     List<FilmDto> films = new ArrayList();
     for (String[] filmString : filmList) {
       Film film = filmFactory.createFilm(filmString);

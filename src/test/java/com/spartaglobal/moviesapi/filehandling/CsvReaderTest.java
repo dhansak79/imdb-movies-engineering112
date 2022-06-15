@@ -16,8 +16,8 @@ public class CsvReaderTest {
 
   @Test
   void readFileTest() {
-    List<String[]> actualResult = CsvReader.readFileWithHeaders(
-        "src/test/resources/com/spartaglobal/moviesapi/test_csv_files/test_data1.csv");
+    String testData1 = "src/test/resources/com/spartaglobal/moviesapi/test_csv_files/test_data1.csv";
+    List<String[]> actualResult = CsvReader.readCSVFile(testData1, true);
     String[] expectedResult = new String[]{"Avatar", "7.9", "2009", "178", "PG-13", "237000000",
         "Action|Adventure|Fantasy|Sci-Fi", "760505847", "James Cameron", "CCH Pounder",
         "Joel David Moore", "Wes Studi", "English", "USA"};
@@ -26,8 +26,8 @@ public class CsvReaderTest {
 
   @Test
   void checkSize() {
-    List<String[]> actualResult = CsvReader.readFileWithHeaders(
-        "src/test/resources/com/spartaglobal/moviesapi/test_csv_files/test_data6.csv");
+    String testData6 = "src/test/resources/com/spartaglobal/moviesapi/test_csv_files/test_data6.csv";
+    List<String[]> actualResult = CsvReader.readCSVFile(testData6, true);
     assertEquals(6, actualResult.size());
   }
 
@@ -35,14 +35,14 @@ public class CsvReaderTest {
   @Disabled
     // Currently not working, will revisit
   void fileDoesNotExist() {
-    assertThatThrownBy(() -> CsvReader.readFileWithHeaders("random.csv")).isInstanceOf(IOException.class)
+    assertThatThrownBy(() -> CsvReader.readCSVFile("random.csv", true)).isInstanceOf(IOException.class)
         .hasMessageContaining("");
   }
 
   @Test
   void readMultipleFilms() {
-    List<String[]> actualResult = CsvReader.readFileWithHeaders(
-        "src/test/resources/com/spartaglobal/moviesapi/test_csv_files/test_data6.csv");
+    String testData6 = "src/test/resources/com/spartaglobal/moviesapi/test_csv_files/test_data6.csv";
+    List<String[]> actualResult = CsvReader.readCSVFile(testData6, true);
     String[] avatar = {"Avatar", "7.9", "2009", "178", "PG-13", "237000000",
         "Action|Adventure|Fantasy|Sci-Fi", "760505847", "James Cameron", "CCH Pounder",
         "Joel David Moore", "Wes Studi", "English", "USA"};
