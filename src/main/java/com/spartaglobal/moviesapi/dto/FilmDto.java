@@ -16,12 +16,13 @@ public class FilmDto {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(nullable = false, name = "film_id")
   private long id;
   @Column(nullable = false, length = 100)
   private String title;
   @Column(nullable = false)
   private double score;
-  @Column(nullable = false)
+  @Column(nullable = false, name = "release_year")
   private int year;
   @Column(nullable = false)
   private int duration;
@@ -29,7 +30,7 @@ public class FilmDto {
   private String rating;
   @Column(nullable = false)
   private long budget;
-  @Column(nullable = false, length = 250)
+  @Column(nullable = false, length = 250, name = "genres")
   // Might need to be string for interaction with the DB
   private String genre;
   @Column(nullable = false)
@@ -42,7 +43,7 @@ public class FilmDto {
   private String actor2;
   @Column(nullable = false, length = 150)
   private String actor3;
-  @Column(nullable = false, length = 60)
+  @Column(nullable = false, length = 60, name = "film_language")
   private String language;
   @Column(nullable = false, length = 70)
   private String country;
