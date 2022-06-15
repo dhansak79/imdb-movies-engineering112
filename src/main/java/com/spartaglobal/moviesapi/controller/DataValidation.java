@@ -16,8 +16,7 @@ import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidScor
 import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidTitleException;
 import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidYearException;
 
-
-public class DataValidation{
+public class DataValidation {
 
   public static boolean validateData(String[] array) {
     try {

@@ -16,7 +16,7 @@ public class CsvWriter {
   }
 
   public static Boolean writeListOfStringArraysToCSV(List<String[]> films, String writeOutFile) {
-
+    logger.info("Writing file: " + writeOutFile);
     try (BufferedWriter buffWrite = new BufferedWriter(new FileWriter(writeOutFile, false))) {
       for (String[] film : films) {
         String writeLine = String.join(",", film);
