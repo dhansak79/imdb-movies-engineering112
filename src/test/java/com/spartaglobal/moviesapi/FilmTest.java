@@ -2,7 +2,7 @@ package com.spartaglobal.moviesapi;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.spartaglobal.moviesapi.model.Film;
+import com.spartaglobal.moviesapi.dto.Film;
 import org.junit.jupiter.api.Test;
 
 class FilmTest {

@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "films")
 @NoArgsConstructor
-public class FilmDto {
+public class Film {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,7 +48,7 @@ public class FilmDto {
   @Column(nullable = false, length = 70)
   private String country;
 
-  public FilmDto(long id, String title, double score, int year, int duration, String rating,
+  public Film(long id, String title, double score, int year, int duration, String rating,
       long budget, String genre, long gross, String director, String actor1, String actor2,
       String actor3, String language, String country) {
     this.id = id;
@@ -68,7 +68,7 @@ public class FilmDto {
     this.country = country;
   }
 
-  public FilmDto(String title, double score, int year, int duration, String rating,
+  public Film(String title, double score, int year, int duration, String rating,
       long budget, String genre, long gross, String director, String actor1, String actor2,
       String actor3, String language, String country) {
     this.title = title;
@@ -212,16 +212,16 @@ public class FilmDto {
     if (this == o) {
       return true;
     }
-    if (!(o instanceof FilmDto)) {
+    if (!(o instanceof Film)) {
       return false;
     }
-    FilmDto filmDto = (FilmDto) o;
-    return id == filmDto.id && score == filmDto.score && duration == filmDto.duration
-        && budget == filmDto.budget && gross == filmDto.gross && title.equals(filmDto.title)
-        && year == filmDto.year && rating.equals(filmDto.rating) && genre.equals(filmDto.genre)
-        && director.equals(filmDto.director) && actor1.equals(filmDto.actor1) && actor2.equals(
-        filmDto.actor2) && actor3.equals(filmDto.actor3) && language.equals(filmDto.language)
-        && country.equals(filmDto.country);
+    Film film = (Film) o;
+    return id == film.id && score == film.score && duration == film.duration
+        && budget == film.budget && gross == film.gross && title.equals(film.title)
+        && year == film.year && rating.equals(film.rating) && genre.equals(film.genre)
+        && director.equals(film.director) && actor1.equals(film.actor1) && actor2.equals(
+        film.actor2) && actor3.equals(film.actor3) && language.equals(film.language)
+        && country.equals(film.country);
   }
 
   @Override

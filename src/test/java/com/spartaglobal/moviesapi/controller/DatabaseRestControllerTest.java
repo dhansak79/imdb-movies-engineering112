@@ -1,61 +1,38 @@
 package com.spartaglobal.moviesapi.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.spartaglobal.moviesapi.dto.FilmDto;
-import com.spartaglobal.moviesapi.model.Film;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
+import com.spartaglobal.moviesapi.dto.Film;
+import com.spartaglobal.moviesapi.repository.FilmRepository;
 import java.util.List;
-import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.jdbc.Sql;
-import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.RequestBuilder;
-import org.springframework.test.web.servlet.ResultMatcher;
+import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-@SpringBootTest
-@AutoConfigureMockMvc
-@Sql(scripts = {"classpath:schema.sql", "classpath:data.sql"},
-    executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
+@RunWith(SpringRunner.class)
+@DataJpaTest
 @ActiveProfiles("dev")
 class DatabaseRestControllerTest {
 
   @Autowired
-  private MockMvc mvc;
-
-  @Autowired
-  private ObjectMapper mapper;
+  private FilmRepository repo;
 
   @Test
   public void testGetAllMovies() throws Exception {
     // Given
-    FilmDto filmOne = new FilmDto("test", 1, 2009, 111,
+    Film filmOne = new Film("test", 1, 2009, 111,
         "PG", 1, "test", 1, "test", "test", "test",
         "test", "test", "test");
-    FilmDto filmTwo = new FilmDto("test", 1, 2009, 111,
+    Film filmTwo = new Film("test", 1, 2009, 111,
         "PG", 1, "test", 1, "test", "test", "test",
         "test", "test", "test");
-    List<FilmDto> db = List.of(filmOne, filmTwo);
 
-    String dbJSON = this.mapper.writeValueAsString(db);
+    repo.save(filmOne);
 
-    RequestBuilder req = get("/getFilms");
+    List<Film> film = (List<Film>) repo.findAll();
 
-    ResultMatcher checkStatus = status().isOk();
-    ResultMatcher checkBody = content().json(dbJSON);
-
-    this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
+    Assertions.assertEquals(1, film.size());
   }
 }
