@@ -31,7 +31,7 @@ Application that cleans records, adds to a database, and then allows users to fi
 **How to use**
 - Clone/Download project from GitHub
 - From the command line run this command:
-  > java -jar IMDB-Movies-API-0.0.1-SNAPSHOT.jar "<insert your file path here>"
+  > java -jar IMDB-Movies-API-0.0.1-SNAPSHOT.jar "insert your file path here"
 - Open up a browser and navigate to access the database
   >"http://localhost:8080/h2"
 - Hit connect to log into H2
