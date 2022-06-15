@@ -1,9 +1,7 @@
 package com.spartaglobal.moviesapi.controller;
 
 import com.spartaglobal.moviesapi.enums.AgeRating;
-import com.spartaglobal.moviesapi.enums.Country;
 import com.spartaglobal.moviesapi.enums.Genre;
-import com.spartaglobal.moviesapi.enums.Language;
 import com.spartaglobal.moviesapi.exceptions.ValidateException;
 import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidBudgetException;
 import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidCountryException;
@@ -18,22 +16,7 @@ import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidScor
 import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidTitleException;
 import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidYearException;
 
-public class DataValidation implements FilmValidation {
-
-  // Name
-  // score: Must be a float
-  // year
-  // duration
-  // Rating: enum
-  // Budget: must be a long
-  // Genre: Enum, can contain multiple genres (Action|Adventure|Fantasy)
-  // Gross: must be a long
-  // director
-  // actor1
-  // actor2
-  // actor3
-  // Language: enum or string?
-  // Country: enum or string?
+public class DataValidation {
 
   public static boolean validateData(String[] array) {
     try {
@@ -58,6 +41,7 @@ public class DataValidation implements FilmValidation {
 
     return true;
   }
+
 
   public static boolean isValidLength(String[] arr) throws ValidateException {
     if (arr.length != 14) {
@@ -152,21 +136,16 @@ public class DataValidation implements FilmValidation {
   }
 
   public static boolean isValidLanguage(String input) throws ValidateException {
-    if (Language.getLanguageFromString(input) == null) {
-    throw new InvalidLanguageException();
-  }
+    if (input == null || input.length() <= 2) {
+      throw new InvalidLanguageException();
+    }
     return true;
   }
 
   public static boolean isValidCountry(String input) throws ValidateException {
-    if (Country.getCountryFromString(input) == null) {
+    if (input == null || input.length() < 2) {
       throw new InvalidCountryException();
     }
-
-    if (input.length() <= 0) {
-      throw new InvalidCountryException();
-    }
-
     return true;
   }
 }
