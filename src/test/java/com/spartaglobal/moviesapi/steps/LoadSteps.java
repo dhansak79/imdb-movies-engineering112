@@ -16,8 +16,14 @@ public class LoadSteps {
 
   @Given("An input file with five valid and five invalid records")
   public void anInputFileWithFiveValidAndFiveInvalidRecords() {
-    //filePath = "src/test/resources/testdatafiles/5Valid5InvalidRecords.csv";
-    filePath = "src/main/resources/imdb_data.csv";
+    filePath = "src/test/resources/testdatafiles/5Valid5InvalidRecords.csv";
+//    filePath = "src/main/resources/imdb_data.csv";
+  }
+
+  @When("We attempt to clean the records")
+  public void weAttemptToCleanTheRecords() {
+    FileProcessor fileProcessor = new FileProcessor();
+    fileProcessor.cleanFile(filePath);
   }
 
   @When("We attempt to load the records to the database")
@@ -58,4 +64,5 @@ public class LoadSteps {
     filePath = "src/test/resources/com/spartaglobal/moviesapi/imdb_data.csv";
 
   }
+
 }

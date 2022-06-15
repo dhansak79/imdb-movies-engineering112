@@ -40,7 +40,7 @@ public class FileProcessor {
     loadDb("cleanRecords.csv");
   }
 
-  private void cleanFile(String filePath) {
+  public void cleanFile(String filePath) {
     List<String[]> rawRecords = CsvReader.readFileWithHeaders(filePath);
     List<String[]> validRecords = new ArrayList<>();
     List<String[]> invalidRecords = new ArrayList<>();
