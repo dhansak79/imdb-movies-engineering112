@@ -3,7 +3,7 @@ package com.spartaglobal.moviesapi.filehandling;
 
 import com.spartaglobal.moviesapi.model.Film;
 import com.spartaglobal.moviesapi.model.FilmFactory;
-import com.spartaglobal.moviesapi.validation.CsvRowValidator;
+import com.spartaglobal.moviesapi.filehandling.validation.CsvRowValidator;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.logging.log4j.LogManager;

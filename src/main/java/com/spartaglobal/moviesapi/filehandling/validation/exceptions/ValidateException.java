@@ -1,4 +1,4 @@
-package com.spartaglobal.moviesapi.validation.exceptions;
+package com.spartaglobal.moviesapi.filehandling.validation.exceptions;
 
 public abstract class ValidateException extends Exception {
 

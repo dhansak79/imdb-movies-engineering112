@@ -1,7 +1,7 @@
-package com.spartaglobal.moviesapi.validation;
+package com.spartaglobal.moviesapi.filehandling.validation;
 
-import com.spartaglobal.moviesapi.validation.exceptions.ValidateException;
-import com.spartaglobal.moviesapi.validation.exceptions.ValidateMoviesException.InvalidNameException;
+import com.spartaglobal.moviesapi.filehandling.validation.exceptions.ValidateException;
+import com.spartaglobal.moviesapi.filehandling.validation.exceptions.ValidateMoviesException.InvalidNameException;
 
 public class ActorsNamesValidationRule implements FilmValidationRule {
 

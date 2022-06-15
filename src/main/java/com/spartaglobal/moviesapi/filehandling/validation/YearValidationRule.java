@@ -1,7 +1,7 @@
-package com.spartaglobal.moviesapi.validation;
+package com.spartaglobal.moviesapi.filehandling.validation;
 
-import com.spartaglobal.moviesapi.validation.exceptions.ValidateException;
-import com.spartaglobal.moviesapi.validation.exceptions.ValidateMoviesException.InvalidYearException;
+import com.spartaglobal.moviesapi.filehandling.validation.exceptions.ValidateException;
+import com.spartaglobal.moviesapi.filehandling.validation.exceptions.ValidateMoviesException.InvalidYearException;
 
 public class YearValidationRule implements FilmValidationRule {
 
