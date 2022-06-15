@@ -6,10 +6,12 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 @Component
-public class DataLoader {
+public class DataLoader implements ApplicationRunner {
 
   private static final Logger logger = LogManager.getLogger(DataLoader.class);
   private final FileProcessor fileProcessor;
@@ -21,11 +23,17 @@ public class DataLoader {
     this.filmRepository = filmRepository;
   }
 
-  public void load(String filePath) {
-    logger.info("Getting films from file: " + filePath + ".....");
+  @Override
+  public void run(ApplicationArguments args) throws Exception {
+    String filePath;
+    if (args.getSourceArgs().length < 1) {
+      filePath = "src/main/resources/imdb_data.csv";
+    } else {
+      filePath = args.getSourceArgs()[0];
+    }
+    logger.info("Getting films from file: " + args + ".....");
     List<Film> films = fileProcessor.process(filePath);
     logger.info("Inserting films into the database.....");
     filmRepository.saveAll(films);
   }
-
 }
