@@ -35,7 +35,7 @@ Application that cleans records, adds to a database, and then allows users to fi
 - Open up a browser and navigate to access the database
   >"http://localhost:8080/h2"
 - Hit connect to log into H2
-- You can hit the endpoint `localhost:8080/getFilms`
+- You can hit the endpoint  `localhost:8080/getFilms` to call the API
 ## Quality Assurance
 *How to run Test*
 Run the following on the terminal
