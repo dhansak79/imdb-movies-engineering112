@@ -17,6 +17,7 @@ import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidTitl
 import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidYearException;
 import com.spartaglobal.moviesapi.validation.BudgetValidationRule;
 import com.spartaglobal.moviesapi.validation.CountryValidationRule;
+import com.spartaglobal.moviesapi.validation.CsvRowValidator;
 import com.spartaglobal.moviesapi.validation.DurationValidationRule;
 import com.spartaglobal.moviesapi.validation.FilmCsvRow;
 import com.spartaglobal.moviesapi.validation.GenreValidationRule;
@@ -31,7 +32,7 @@ import com.spartaglobal.moviesapi.validation.YearValidationRule;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class DataValidatorTest {
+class CsvRowValidatorTest {
 
   private static final String[] VALID_DATA_SAMPLE = {"Avatar", "7.9", "2009", "178", "PG-13",
       "237000000", "Action|Adventure|Fantasy|Sci-Fi", "760505847", "James Cameron", "CCH Pounder",
@@ -49,7 +50,7 @@ class DataValidatorTest {
 
   @Test
   void validDataTest() {
-    Assertions.assertTrue(DataValidator.validateData(VALID_DATA_SAMPLE));
+    Assertions.assertTrue(CsvRowValidator.validateData(VALID_DATA_SAMPLE));
   }
 
   @Test
@@ -102,8 +103,13 @@ class DataValidatorTest {
 
   @Test
   void invalidDurationTest() {
+    FilmCsvRow film = new FilmCsvRow("Avatar", "7.9", "2009", "199.1452",
+        "PG-13",
+        "237000000", "Action|Adventure|Fantasy|Sci-Fi", "760505847", "James Cameron", "CCH Pounder",
+        "Joel David Moore", "Wes Studi", "English", "USA");
+
     Throwable throwable = assertThrows(InvalidDurationException.class, () ->
-        DurationValidationRule.validate("199.1452"));
+        new DurationValidationRule().validate(film));
 
     assertEquals("Invalid duration. Duration must be a whole number.", throwable.getMessage());
   }
