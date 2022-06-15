@@ -8,12 +8,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.xml.stream.events.Comment;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 class FileProcessorTest {
 
   @Test
+  @Disabled // This needs to be changed to use H2 database
   void processTest() throws SQLException, IOException {
     FileProcessor fileProcessor = new FileProcessor();
     String filePath = "cleanRecords.csv";
