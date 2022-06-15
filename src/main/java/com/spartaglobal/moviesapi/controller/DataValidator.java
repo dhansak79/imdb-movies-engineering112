@@ -1,7 +1,7 @@
 package com.spartaglobal.moviesapi.controller;
 
-import com.spartaglobal.moviesapi.enums.AgeRating;
-import com.spartaglobal.moviesapi.enums.Genre;
+import com.spartaglobal.moviesapi.model.enums.AgeRating;
+import com.spartaglobal.moviesapi.model.enums.Genre;
 import com.spartaglobal.moviesapi.exceptions.ValidateException;
 import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidBudgetException;
 import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidCountryException;
@@ -16,7 +16,7 @@ import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidScor
 import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidTitleException;
 import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidYearException;
 
-public class DataValidation {
+public class DataValidator {
 
   public static boolean validateData(String[] array) {
     try {

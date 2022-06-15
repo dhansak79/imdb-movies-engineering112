@@ -1,7 +1,7 @@
 package com.spartaglobal.moviesapi.steps;
 
-import com.spartaglobal.moviesapi.FileProcessor;
-import com.spartaglobal.moviesapi.dto.Film;
+import com.spartaglobal.moviesapi.controller.FileProcessor;
+import com.spartaglobal.moviesapi.model.Film;
 import com.spartaglobal.moviesapi.exceptions.NoFilmsInDatabaseException;
 import com.spartaglobal.moviesapi.repository.FilmRepository;
 import com.spartaglobal.moviesapi.service.FilmService;
@@ -33,8 +33,8 @@ public final class FullLoadAndCleanCsvFileSteps {
 
   @When("We attempt to clean the records")
   public void weAttemptToCleanTheRecords() {
-    FileProcessor fileProcessor = new FileProcessor(filmRepository);
-    fileProcessor.cleanFile(filePath);
+    FileProcessor fileProcessor = new FileProcessor();
+    fileProcessor.writeFiles(filePath);
   }
 
   @Then("{int} invalid records are written out to an error file")
@@ -60,7 +60,7 @@ public final class FullLoadAndCleanCsvFileSteps {
 
   @When("We attempt to load the records to the database")
   public void weAttemptToLoadTheRecordsToTheDatabase() {
-    FileProcessor fileProcessor = new FileProcessor(filmRepository);
+    FileProcessor fileProcessor = new FileProcessor();
     fileProcessor.process(filePath);
   }
 

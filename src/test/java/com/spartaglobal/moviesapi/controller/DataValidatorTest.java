@@ -18,7 +18,7 @@ import com.spartaglobal.moviesapi.exceptions.ValidateMoviesException.InvalidYear
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class DataValidationTest {
+class DataValidatorTest {
 
   private static final String[] VALID_DATA_SAMPLE = {"Avatar", "7.9", "2009", "178", "PG-13",
       "237000000", "Action|Adventure|Fantasy|Sci-Fi", "760505847", "James Cameron", "CCH Pounder",
@@ -31,13 +31,13 @@ class DataValidationTest {
 
   @Test
   void validDataTest() {
-    Assertions.assertTrue(DataValidation.validateData(VALID_DATA_SAMPLE));
+    Assertions.assertTrue(DataValidator.validateData(VALID_DATA_SAMPLE));
   }
 
   @Test
   void invalidDataLengthTest() {
     Throwable throwable = assertThrows(InvalidLengthException.class, () ->
-        DataValidation.isValidLength(INVALID_DATA_LENGTH_SAMPLE));
+        DataValidator.isValidLength(INVALID_DATA_LENGTH_SAMPLE));
 
     assertEquals("Incomplete length of data", throwable.getMessage());
   }
@@ -45,7 +45,7 @@ class DataValidationTest {
   @Test
   void invalidTitleTest() {
     Throwable throwable = assertThrows(InvalidTitleException.class, () ->
-        DataValidation.isValidTitle(""));
+        DataValidator.isValidTitle(""));
 
     assertEquals("Invalid movie title", throwable.getMessage());
   }
@@ -53,7 +53,7 @@ class DataValidationTest {
   @Test
   void invalidScoreTest() {
     Throwable throwable = assertThrows(InvalidScoreException.class, () ->
-        DataValidation.isValidScore("seven"));
+        DataValidator.isValidScore("seven"));
 
     assertEquals("Invalid score", throwable.getMessage());
   }
@@ -61,7 +61,7 @@ class DataValidationTest {
   @Test
   void invalidYearTest() {
     Throwable throwable = assertThrows(InvalidYearException.class, () ->
-        DataValidation.isValidYear("202"));
+        DataValidator.isValidYear("202"));
 
     assertEquals("Film year is invalid", throwable.getMessage());
   }
@@ -69,7 +69,7 @@ class DataValidationTest {
   @Test
   void invalidYearNotANumberTest() {
     Throwable throwable = assertThrows(InvalidYearException.class, () ->
-        DataValidation.isValidYear("aaaa"));
+        DataValidator.isValidYear("aaaa"));
 
     assertEquals("Film year is invalid", throwable.getMessage());
   }
@@ -77,7 +77,7 @@ class DataValidationTest {
   @Test
   void invalidDurationTest() {
     Throwable throwable = assertThrows(InvalidDurationException.class, () ->
-        DataValidation.isValidDuration("199.1452"));
+        DataValidator.isValidDuration("199.1452"));
 
     assertEquals("Invalid duration. Duration must be a whole number.", throwable.getMessage());
   }
@@ -85,7 +85,7 @@ class DataValidationTest {
   @Test
   void invalidBudgetAsTextTest() {
     Throwable throwable = assertThrows(InvalidBudgetException.class, () ->
-        DataValidation.isValidBudget("budget"));
+        DataValidator.isValidBudget("budget"));
 
     assertEquals("Budget must be a whole number", throwable.getMessage());
   }
@@ -93,14 +93,14 @@ class DataValidationTest {
   @Test
   void invalidBudgetAsNotWholeNumberTest() {
     Throwable throwable = assertThrows(InvalidBudgetException.class, () ->
-        DataValidation.isValidBudget("1.25454"));
+        DataValidator.isValidBudget("1.25454"));
     assertEquals("Budget must be a whole number", throwable.getMessage());
   }
 
   @Test
   void invalidRatingTest() {
     Throwable throwable = assertThrows(InvalidRatingException.class,
-        () -> DataValidation.isValidRating("6713"));
+        () -> DataValidator.isValidRating("6713"));
 
     assertEquals("Film rating is invalid", throwable.getMessage());
   }
@@ -108,7 +108,7 @@ class DataValidationTest {
   @Test
   void invalidGrossTest() {
     Throwable throwable = assertThrows(InvalidGross.class,
-        () -> DataValidation.isValidGross("19515.151"));
+        () -> DataValidator.isValidGross("19515.151"));
 
     assertEquals("Gross is invalid. Gross must be a whole number.", throwable.getMessage());
   }
@@ -116,7 +116,7 @@ class DataValidationTest {
   @Test
   void invalidNameTest() {
     Throwable throwable = assertThrows(InvalidNameException.class,
-        () -> DataValidation.isValidName(""));
+        () -> DataValidator.isValidName(""));
 
     assertEquals("Name is invalid.", throwable.getMessage());
   }
@@ -124,7 +124,7 @@ class DataValidationTest {
   @Test
   void invalidNameNullTest() {
     Throwable throwable = assertThrows(InvalidNameException.class,
-        () -> DataValidation.isValidName(null));
+        () -> DataValidator.isValidName(null));
 
     assertEquals("Name is invalid.", throwable.getMessage());
   }
@@ -132,7 +132,7 @@ class DataValidationTest {
   @Test
   void invalidGenreTest() {
     Throwable throwable = assertThrows(InvalidGenreException.class,
-        () -> DataValidation.isValidGenre("Invalid movies genre"));
+        () -> DataValidator.isValidGenre("Invalid movies genre"));
 
     assertEquals("Invalid movies genre", throwable.getMessage());
   }
@@ -140,7 +140,7 @@ class DataValidationTest {
   @Test
   void invalidLanguageTest() {
     Throwable throwable = assertThrows(InvalidLanguageException.class,
-        () -> DataValidation.isValidLanguage(""));
+        () -> DataValidator.isValidLanguage(""));
 
     assertEquals("Invalid Language Detected", throwable.getMessage());
   }
@@ -148,7 +148,7 @@ class DataValidationTest {
   @Test
   void invalidCountryTest() {
     Throwable throwable = assertThrows(InvalidCountryException.class,
-        () -> DataValidation.isValidCountry(""));
+        () -> DataValidator.isValidCountry(""));
 
     assertEquals("Invalid Country detected", throwable.getMessage());
   }

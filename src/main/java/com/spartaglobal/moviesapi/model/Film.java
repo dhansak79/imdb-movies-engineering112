@@ -1,4 +1,4 @@
-package com.spartaglobal.moviesapi.dto;
+package com.spartaglobal.moviesapi.model;
 
 import java.util.Objects;
 import javax.persistence.Column;

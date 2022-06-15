@@ -2,6 +2,7 @@ package com.spartaglobal.moviesapi.enums;
 
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
+import com.spartaglobal.moviesapi.model.enums.Genre;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;

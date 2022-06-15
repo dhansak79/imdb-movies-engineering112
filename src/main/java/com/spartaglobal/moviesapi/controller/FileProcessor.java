@@ -1,49 +1,39 @@
-package com.spartaglobal.moviesapi;
+package com.spartaglobal.moviesapi.controller;
 
 
-import com.spartaglobal.moviesapi.controller.DataValidation;
-import com.spartaglobal.moviesapi.controller.FilmFactory;
-import com.spartaglobal.moviesapi.dto.Film;
 import com.spartaglobal.moviesapi.filehandling.CsvReader;
 import com.spartaglobal.moviesapi.filehandling.CsvWriter;
-import com.spartaglobal.moviesapi.repository.FilmRepository;
+import com.spartaglobal.moviesapi.model.Film;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class FileProcessor {
 
   private static final Logger logger = LogManager.getLogger(FileProcessor.class);
-  FilmRepository filmRepository;
 
-  @Autowired
-  public FileProcessor(FilmRepository filmRepository) {
-    this.filmRepository = filmRepository;
-  }
-
-  public void process(String filePath) {
-    cleanFile(filePath);
+  public List<Film> process(String filePath) {
+    writeFiles(filePath);
     FilmFactory filmFactory = new FilmFactory();
     List<String[]> filmList = CsvReader.readFileWithoutHeaders("cleanRecords.csv");
-    logger.info("Attempting to insert records to the database.");
-    int i = 0;
+    logger.info("Reading records cleanRecords.csv");
+    List<Film> films = new ArrayList<>();
     for (String[] filmString : filmList) {
-      Film film = filmFactory.createFilm(filmString);
-      filmRepository.save(film);
-      i++;
+      films.add(filmFactory.createFilm(filmString));
     }
-    logger.info("Successfully inserted :" + i + " records to the database.");
+    return films;
   }
 
-  public void cleanFile(String filePath) {
+  public void writeFiles(String filePath) {
     List<String[]> rawRecords = CsvReader.readFileWithHeaders(filePath);
     List<String[]> validRecords = new ArrayList<>();
     List<String[]> invalidRecords = new ArrayList<>();
 
     for (String[] rawRecord : rawRecords) {
-      boolean isValid = DataValidation.validateData(rawRecord);
+      boolean isValid = DataValidator.validateData(rawRecord);
 
       if (isValid) {
         validRecords.add(rawRecord);

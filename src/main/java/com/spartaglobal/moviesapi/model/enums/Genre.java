@@ -1,4 +1,4 @@
-package com.spartaglobal.moviesapi.enums;
+package com.spartaglobal.moviesapi.model.enums;
 
 public enum Genre {
 
