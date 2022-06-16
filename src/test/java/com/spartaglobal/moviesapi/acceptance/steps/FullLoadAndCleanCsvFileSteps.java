@@ -1,10 +1,11 @@
 package com.spartaglobal.moviesapi.acceptance.steps;
 
+import com.spartaglobal.moviesapi.data.DataLoader;
+import com.spartaglobal.moviesapi.data.FilmRepository;
 import com.spartaglobal.moviesapi.filehandling.FileProcessor;
 import com.spartaglobal.moviesapi.model.Film;
-import com.spartaglobal.moviesapi.service.exceptions.NoFilmsInDatabaseException;
-import com.spartaglobal.moviesapi.data.FilmRepository;
 import com.spartaglobal.moviesapi.service.FilmService;
+import com.spartaglobal.moviesapi.service.exceptions.NoFilmsInDatabaseException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -22,6 +23,9 @@ public final class FullLoadAndCleanCsvFileSteps {
 
   @Autowired
   private FilmRepository filmRepository;
+
+  @Autowired
+  private DataLoader dataLoader;
 
   private String filePath = "";
 
@@ -55,13 +59,12 @@ public final class FullLoadAndCleanCsvFileSteps {
 
   @Given("The full input file")
   public void theFullInputFile() {
-    String filePath = "testdatafiles/5Valid5InvalidRecords.csv";
+    filePath = "src/test/resources/com/spartaglobal/moviesapi/imdb_data.csv";
   }
 
   @When("We attempt to load the records to the database")
   public void weAttemptToLoadTheRecordsToTheDatabase() {
-    FileProcessor fileProcessor = new FileProcessor();
-    fileProcessor.process(filePath);
+    dataLoader.loadFileToDatabase(filePath);
   }
 
   @Then("There are {int} of records in the database")

@@ -4,4 +4,4 @@ Feature: Film data csv file successfully loaded into database, invalid records w
   Scenario: Full load of file
     Given The full input file
     When We attempt to load the records to the database
-    Then There are 5 of records in the database
+    Then There are 3748 of records in the database
