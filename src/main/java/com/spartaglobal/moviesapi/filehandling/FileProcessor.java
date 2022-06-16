@@ -18,7 +18,7 @@ public class FileProcessor {
   public List<Film> process(String filePath) {
     writeFiles(filePath);
     FilmFactory filmFactory = new FilmFactory();
-    List<String[]> filmList = CsvReader.readFileWithoutHeaders("cleanRecords.csv");
+    List<String[]> filmList = CsvReader.readCSVFile("cleanRecords.csv", false);
     logger.info("Reading records cleanRecords.csv");
     List<Film> films = new ArrayList<>();
     for (String[] filmString : filmList) {
@@ -28,7 +28,7 @@ public class FileProcessor {
   }
 
   public void writeFiles(String filePath) {
-    List<String[]> rawRecords = CsvReader.readFileWithHeaders(filePath);
+    List<String[]> rawRecords = CsvReader.readCSVFile(filePath, true);
     List<String[]> validRecords = new ArrayList<>();
     List<String[]> invalidRecords = new ArrayList<>();
 
