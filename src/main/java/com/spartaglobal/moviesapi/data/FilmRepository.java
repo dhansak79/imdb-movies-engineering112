@@ -1,4 +1,4 @@
-package com.spartaglobal.moviesapi.repository;
+package com.spartaglobal.moviesapi.data;
 
 import com.spartaglobal.moviesapi.model.Film;
 import org.springframework.data.repository.CrudRepository;

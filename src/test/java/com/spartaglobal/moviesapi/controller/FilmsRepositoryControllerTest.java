@@ -1,7 +1,7 @@
 package com.spartaglobal.moviesapi.controller;
 
 import com.spartaglobal.moviesapi.model.Film;
-import com.spartaglobal.moviesapi.repository.FilmRepository;
+import com.spartaglobal.moviesapi.data.FilmRepository;
 import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

@@ -1,7 +1,7 @@
 package com.spartaglobal.moviesapi.controller;
 
 import com.spartaglobal.moviesapi.model.Film;
-import com.spartaglobal.moviesapi.exceptions.NoFilmsInDatabaseException;
+import com.spartaglobal.moviesapi.service.exceptions.NoFilmsInDatabaseException;
 import com.spartaglobal.moviesapi.service.FilmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

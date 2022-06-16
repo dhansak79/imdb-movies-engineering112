@@ -1,7 +1,7 @@
 package com.spartaglobal.moviesapi.service;
 
 import com.spartaglobal.moviesapi.model.Film;
-import com.spartaglobal.moviesapi.repository.FilmRepository;
+import com.spartaglobal.moviesapi.data.FilmRepository;
 import java.util.List;
 import org.springframework.stereotype.Service;
 

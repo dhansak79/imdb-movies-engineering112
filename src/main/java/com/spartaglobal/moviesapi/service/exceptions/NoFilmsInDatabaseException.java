@@ -1,4 +1,4 @@
-package com.spartaglobal.moviesapi.exceptions;
+package com.spartaglobal.moviesapi.service.exceptions;
 
 public class NoFilmsInDatabaseException extends Exception{
 
