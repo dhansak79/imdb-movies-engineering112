@@ -1,9 +1,9 @@
-package com.spartaglobal.moviesapi.controller;
+package com.spartaglobal.moviesapi.filehandling;
 
 
-import com.spartaglobal.moviesapi.filehandling.CsvReader;
-import com.spartaglobal.moviesapi.filehandling.CsvWriter;
 import com.spartaglobal.moviesapi.model.Film;
+import com.spartaglobal.moviesapi.model.FilmFactory;
+import com.spartaglobal.moviesapi.filehandling.validation.CsvRowValidator;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.logging.log4j.LogManager;
@@ -33,7 +33,7 @@ public class FileProcessor {
     List<String[]> invalidRecords = new ArrayList<>();
 
     for (String[] rawRecord : rawRecords) {
-      boolean isValid = DataValidator.validateData(rawRecord);
+      boolean isValid = CsvRowValidator.validateData(rawRecord);
 
       if (isValid) {
         validRecords.add(rawRecord);

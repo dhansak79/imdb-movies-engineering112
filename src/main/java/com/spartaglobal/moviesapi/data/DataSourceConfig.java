@@ -1,4 +1,4 @@
-package com.spartaglobal.moviesapi.dao;
+package com.spartaglobal.moviesapi.data;
 
 import javax.sql.DataSource;
 import org.springframework.boot.jdbc.DataSourceBuilder;
