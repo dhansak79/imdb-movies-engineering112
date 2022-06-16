@@ -167,6 +167,7 @@
                 <configuration>
                   <excludes>
                     <exclude>com/spartaglobal/moviesapi/acceptance/*</exclude>
+                    <exclude>src/main/java/com/spartaglobal/moviesapi/model/*</exclude>
                   </excludes>
                   <formats>
                     <format>XML</format>
