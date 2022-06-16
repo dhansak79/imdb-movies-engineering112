@@ -1,5 +1,6 @@
 package com.spartaglobal.moviesapi.model;
 
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +18,6 @@ import lombok.ToString;
 @NoArgsConstructor
 @Getter
 @Setter
-@EqualsAndHashCode
 @ToString
 public class Film {
 
@@ -92,6 +92,29 @@ public class Film {
     this.actor3 = actor3;
     this.language = language;
     this.country = country;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    Film film = (Film) o;
+    return id == film.id && Double.compare(film.score, score) == 0 && year == film.year
+        && duration == film.duration && budget == film.budget && gross == film.gross
+        && title.equals(
+        film.title) && rating.equals(film.rating) && genre.equals(film.genre) && director.equals(
+        film.director) && actor1.equals(film.actor1) && actor2.equals(film.actor2) && actor3.equals(
+        film.actor3) && language.equals(film.language) && country.equals(film.country);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, title, score, year, duration, rating, budget, genre, gross, director,
+        actor1, actor2, actor3, language, country);
   }
 }
 
