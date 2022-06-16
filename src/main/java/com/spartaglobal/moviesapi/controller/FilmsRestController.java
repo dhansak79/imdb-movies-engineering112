@@ -41,7 +41,8 @@ public class FilmsRestController {
       String lowerCaseTitle = film.getTitle().toLowerCase();
       if(lowerCaseTitle.startsWith(title)) {
         matchedFilms.add(film);
-      } else if (lowerCaseTitle.contains (title) ) {
+      } else if (title.length() > 1
+          && lowerCaseTitle.contains (title)) {
         matchedFilms.add(film);
       }
     }
