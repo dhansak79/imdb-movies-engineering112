@@ -1,12 +1,14 @@
 package com.spartaglobal.moviesapi.controller;
 
 import com.spartaglobal.moviesapi.model.Film;
+import com.spartaglobal.moviesapi.service.exceptions.IdNotFoundException;
 import com.spartaglobal.moviesapi.service.exceptions.NoFilmsInDatabaseException;
 import com.spartaglobal.moviesapi.service.FilmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -16,7 +18,7 @@ public class FilmsRestController {
   @Autowired
   private final FilmService service;
 
-  public FilmsRestController(FilmService service){
+  public FilmsRestController(FilmService service) {
     super();
     this.service = service;
   }
@@ -26,5 +28,12 @@ public class FilmsRestController {
     Iterable<Film> films;
     films = service.getAllFilms();
     return ResponseEntity.ok(films);
+  }
+
+  @GetMapping("/getFilm/{id}")
+  public ResponseEntity<Film> getFilmById(@PathVariable("id") Long id) throws IdNotFoundException {
+    Film film = null;
+    film = service.getFilmById(id);
+    return ResponseEntity.ok(film);
   }
 }
