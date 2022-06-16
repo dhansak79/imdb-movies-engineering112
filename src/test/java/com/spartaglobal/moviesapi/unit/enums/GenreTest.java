@@ -53,7 +53,7 @@ public class GenreTest {
         arguments("WAR", Genre.WAR),
         arguments("BIOGRAPHY", Genre.BIOGRAPHY),
         arguments("MUSIC", Genre.MUSIC),
-        arguments("GAME_SHOW", Genre.GAME_SHOW),
+        arguments("GAME-SHOW", Genre.GAME_SHOW),
         arguments("REALITY-TV", Genre.REALITY_TV),
         arguments("NEWS", Genre.NEWS),
         arguments("SHORT", Genre.SHORT),
