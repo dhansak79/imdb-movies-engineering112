@@ -26,12 +26,6 @@ class FilmsRepositoryControllerTest {
   @Autowired
   private FilmRepository repo;
 
-  @Autowired
-  private MockMvc mvc;
-
-  @Autowired
-  private ObjectMapper mapper;
-
   @Test
   public void testGetAllMovies() throws Exception {
     // Given
@@ -48,21 +42,5 @@ class FilmsRepositoryControllerTest {
 
     Assertions.assertEquals(1, film.size());
   }
-
-  @Test
-  public void getMovieById() throws Exception {
-    Long id = 1l;
-
-    Film filmOne = new Film("test", 1, 2009, 111,
-        "PG", 1, "test", 1, "test", "test", "test",
-        "test", "test", "test");
-
-    String found = this.mapper.writeValueAsString(filmOne);
-
-    RequestBuilder req = get("/getFilm/" + id);
-    ResultMatcher checkStatus = status().isOk();
-    ResultMatcher checkBody = content().json(found);
-
-    this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
-  }
+  
 }

@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 
 
 @SpringBootTest(webEnvironment = WebEnvironment.DEFINED_PORT)
-public class GetFilmIT {
+public class GetFilmID {
 
   @Test
   public void getFilmById() {
