@@ -3,6 +3,19 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+  <distributionManagement>
+    <repository>
+      <id>GitHub</id>
+      <name>GitHub Packages</name>
+      <url>https://maven.pkg.github.com/dhansak79/imdb-movies-engineering112</url>
+    </repository>
+    <snapshotRepository>
+      <id>GitHub</id>
+      <name>GitHub Packages</name>
+      <url>https://maven.pkg.github.com/dhansak79/imdb-movies-engineering112</url>
+    </snapshotRepository>
+  </distributionManagement>
+
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
@@ -11,9 +24,10 @@
   </parent>
   <groupId>com.spartaglobal</groupId>
   <artifactId>IMDB-Movies-API</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0</version>
   <name>IMDB-Movies-API</name>
   <description>A restful API application containing clean records from a CSV file.</description>
+
 
   <properties>
     <java.version>17</java.version>
@@ -121,6 +135,12 @@
       <version>0.8.8</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-deploy-plugin</artifactId>
+      <version>3.0.0-M2</version>
+    </dependency>
+
   </dependencies>
 
   <profiles>
@@ -159,6 +179,32 @@
 
   <build>
     <plugins>
+
+      <plugin>
+        <groupId>org.pitest</groupId>
+        <artifactId>pitest-maven</artifactId>
+        <version>1.7.5</version>
+
+        <executions>
+          <execution>
+            <id>pit-report</id>
+            <!-- optional, this example attached the goal into mvn test phase -->
+            <phase>test</phase>
+            <goals>
+              <goal>mutationCoverage</goal>
+            </goals>
+          </execution>
+        </executions>
+
+        <dependencies>
+          <dependency>
+            <groupId>org.pitest</groupId>
+            <artifactId>pitest-junit5-plugin</artifactId>
+            <version>0.8</version>
+          </dependency>
+        </dependencies>
+
+      </plugin>
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -208,6 +254,15 @@
               <artifactId>lombok</artifactId>
             </exclude>
           </excludes>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <configuration>
+          <altDeploymentRepository>
+            GitHub::https://maven.pkg.github.com/dhansak79/imdb-movies-engineering112
+          </altDeploymentRepository>
         </configuration>
       </plugin>
 

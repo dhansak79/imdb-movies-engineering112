@@ -15,25 +15,32 @@
 
 # Engineering 112 Final Project
 
-Application that cleans records, adds to a database, and then allows users to filter and select data using an API
+Application that cleans records, adds to a database, and then allows users to filter and select data
+using an API
 
 ## Set Up
-*Software Requirements*
-- JDK 17
-- MySQL
 
-*Setup database*
-- Create database 'films' in MySQL
-- Run schema.sql from src/main/resources/schema.sql
-- Create mysql.properties file and put username and password.
+*Software Requirements*
+
+- JDK 17
 
 ## Description / how to use (how to use can be separated later)
+
 **How to use**
-- Download project from intellij.
-- Run Maven compile to build the project.
-- Run ImdbMoviesApiApplication.java class.
+
+- Clone/Download project from GitHub
+- From the command line run this command to have default film data:
+  > java -jar IMDB-Movies-API-0.0.1-SNAPSHOT.jar
+- From the command line run this command to use your own csv of film data:
+  > java -jar IMDB-Movies-API-0.0.1-SNAPSHOT.jar "insert your file path here"
+- To access the database open up a browser and navigate to
+  > "http://localhost:8080/h2"
+  > Hit connect to log into H2
+
+- You can hit the endpoint  `localhost:8080/getFilms` to call the API and return all films
 
 ## Quality Assurance
+
 *How to run Test*
 Run the following on the terminal
 
@@ -41,7 +48,8 @@ Run the following on the terminal
 
 **Cucumber used for end to end tests**
 
-*The image shows the cucumber test report which shows that film data from csv has been loaded successfully**
+*The image shows the cucumber test report which shows that film data from csv has been loaded
+successfully**
 
 <img src="src/test/resources/testEvidence/End_To_End_Test.png" />
 
@@ -49,14 +57,19 @@ Run the following on the terminal
 - Quality Gate used to check the overall code quality
 
 ## (Optional) Creation Process
-*add how we tackled this project, the steps we took and what order, optional as it can be combined with diffictuties.
+
+*add how we tackled this project, the steps we took and what order, optional as it can be combined
+with diffictuties.
 
 ## (Optional) Difficulties / learning experiences
+
 *add details of any issues*
 
 ## Links
+
 *any useful links*
 
 ## Contributors
 
- Jack Mardell, Daniel Webb, Mustapha Chedid, Luke Homer, George Heath, Youmna Khan, Ahmad Abubakar,Adil Salamat
+Jack Mardell, Daniel Webb, Mustapha Chedid, Luke Homer, George Heath, Youmna Khan, Ahmad
+Abubakar,Adil Salamat

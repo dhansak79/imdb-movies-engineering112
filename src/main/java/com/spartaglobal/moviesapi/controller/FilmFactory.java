@@ -1,6 +1,6 @@
 package com.spartaglobal.moviesapi.controller;
 
-import com.spartaglobal.moviesapi.dto.Film;
+import com.spartaglobal.moviesapi.model.Film;
 
 public class FilmFactory {
 
