@@ -21,7 +21,13 @@ public enum Genre {
   MYSTERY,
   HISTORY,
   WAR,
-  BIOGRAPHY;
+  BIOGRAPHY,
+  MUSIC,
+  GAME_SHOW,
+  REALITY_TV,
+  NEWS,
+  SHORT,
+  FILM_NOIR;
 
   public static Genre getGenreFromString(String string) {
     string = string.toUpperCase();
@@ -47,6 +53,12 @@ public enum Genre {
       case "HISTORY" -> Genre.HISTORY;
       case "WAR" -> Genre.WAR;
       case "BIOGRAPHY" -> Genre.BIOGRAPHY;
+      case "MUSIC" -> Genre.MUSIC;
+      case "GAME-SHOW" -> Genre.GAME_SHOW;
+      case "REALITY-TV" -> Genre.REALITY_TV;
+      case "NEWS" -> Genre.NEWS;
+      case "SHORT" -> Genre.SHORT;
+      case "FILM-NOIR" -> Genre.FILM_NOIR;
 
       default -> null;
     };
