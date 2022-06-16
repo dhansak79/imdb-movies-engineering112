@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -32,18 +33,22 @@ public class FilmsRestController {
   }
 
 
-  @GetMapping("/getFilms/search")
-  public ResponseEntity<Iterable<Film>> getAllFilmsByTitle(@RequestParam String title) throws NoFilmsInDatabaseException {
+  @GetMapping("/getFilms/{title}")
+  public ResponseEntity<Iterable<Film>> getAllFilmsByTitle(@PathVariable String title) throws NoFilmsInDatabaseException {
     Iterable<Film> films;
     List<Film> matchedFilms = new ArrayList<>();
     films = service.getAllFilms();
+
     for (Film film: films) {
       String lowerCaseTitle = film.getTitle().toLowerCase();
-      if(lowerCaseTitle.startsWith(title)) {
-        matchedFilms.add(film);
-      } else if (title.length() > 1
-          && lowerCaseTitle.contains (title)) {
-        matchedFilms.add(film);
+      if (Integer.valueOf(1).equals(title.length())){
+        if(lowerCaseTitle.startsWith(title.toLowerCase())) {
+          matchedFilms.add(film);
+        }
+      } else {
+        if (lowerCaseTitle.contains(title.toLowerCase())){
+          matchedFilms.add(film);
+        }
       }
     }
     return ResponseEntity.ok(matchedFilms);
