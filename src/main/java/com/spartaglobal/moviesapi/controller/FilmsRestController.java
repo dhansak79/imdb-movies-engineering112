@@ -33,6 +33,12 @@ public class FilmsRestController {
     return ResponseEntity.ok(films);
   }
 
+  @GetMapping("/getFilm/{id}")
+  public ResponseEntity<Film> getFilmById(@PathVariable("id") Long id) throws IdNotFoundException {
+    Film film = null;
+    film = service.getFilmById(id);
+    return ResponseEntity.ok(film);
+  }
 
   @GetMapping("/getFilms/search")
   public ResponseEntity<Iterable<Film>> getAllFilmsByTitle(@RequestParam String title) throws NoFilmsInDatabaseException {
@@ -50,10 +56,4 @@ public class FilmsRestController {
     return ResponseEntity.ok(matchedFilms);
   }
 
-  @GetMapping("/getFilm/{id}")
-  public ResponseEntity<Film> getFilmById(@PathVariable("id") Long id) throws IdNotFoundException {
-    Film film = null;
-    film = service.getFilmById(id);
-    return ResponseEntity.ok(film);
-  }
 }
