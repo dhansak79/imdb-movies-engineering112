@@ -15,7 +15,12 @@ public enum AgeRating {
   TV_Y,
   TV_Y7,
   NC_17,
-  NOT_RATED;
+  NOT_RATED,
+  UNRATED,
+  X,
+  GP,
+  PASSED,
+  M;
 
 
   public static AgeRating getRatingFromString(String string) {
@@ -33,8 +38,13 @@ public enum AgeRating {
       case "APPROVED" -> AgeRating.APPROVED;
       case "TV-Y" -> AgeRating.TV_Y;
       case "TV-Y7" -> AgeRating.TV_Y7;
-      case "NC_17" -> AgeRating.NC_17;
-      case "NOT_RATED" -> AgeRating.NOT_RATED;
+      case "NC-17" -> AgeRating.NC_17;
+      case "NOT-RATED" -> AgeRating.NOT_RATED;
+      case "UNRATED" -> AgeRating.UNRATED;
+      case "X" -> AgeRating.X;
+      case "GP" -> AgeRating.GP;
+      case "PASSED" -> AgeRating.PASSED;
+      case "M" -> AgeRating.M;
       default -> null;
     };
   }

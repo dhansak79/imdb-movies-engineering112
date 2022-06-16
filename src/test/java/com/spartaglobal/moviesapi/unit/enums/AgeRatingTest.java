@@ -44,7 +44,12 @@ public class AgeRatingTest {
         arguments("TV-Y", AgeRating.TV_Y),
         arguments("TV-Y7", AgeRating.TV_Y7),
         arguments("NC_17", AgeRating.NC_17),
-        arguments("NOT_RATED", AgeRating.NOT_RATED)
+        arguments("NOT-RATED", AgeRating.NOT_RATED),
+        arguments("APPROVED", AgeRating.UNRATED),
+        arguments("X", AgeRating.X),
+        arguments("GP", AgeRating.GP),
+        arguments("PASSED", AgeRating.PASSED),
+        arguments("NOT-RATED", AgeRating.M)
     );
   }
 }

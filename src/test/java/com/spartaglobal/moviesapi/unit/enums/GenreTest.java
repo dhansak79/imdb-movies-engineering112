@@ -51,7 +51,13 @@ public class GenreTest {
         arguments("MYSTERY", Genre.MYSTERY),
         arguments("HISTORY", Genre.HISTORY),
         arguments("WAR", Genre.WAR),
-        arguments("BIOGRAPHY", Genre.BIOGRAPHY)
+        arguments("BIOGRAPHY", Genre.BIOGRAPHY),
+        arguments("MUSIC", Genre.MUSIC),
+        arguments("GAME_SHOW", Genre.GAME_SHOW),
+        arguments("REALITY-TV", Genre.REALITY_TV),
+        arguments("NEWS", Genre.NEWS),
+        arguments("SHORT", Genre.SHORT),
+        arguments("FILM-NOIR", Genre.FILM_NOIR)
     );
   }
 }
