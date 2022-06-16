@@ -1,4 +1,4 @@
-package com.spartaglobal.moviesapi.steps;
+package com.spartaglobal.moviesapi.acceptance.steps;
 
 import com.spartaglobal.moviesapi.filehandling.FileProcessor;
 import com.spartaglobal.moviesapi.model.Film;

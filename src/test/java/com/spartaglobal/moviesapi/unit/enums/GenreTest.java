@@ -1,4 +1,4 @@
-package com.spartaglobal.moviesapi.enums;
+package com.spartaglobal.moviesapi.unit.enums;
 
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 

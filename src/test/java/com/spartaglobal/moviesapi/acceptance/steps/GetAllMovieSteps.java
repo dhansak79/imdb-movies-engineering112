@@ -1,4 +1,4 @@
-package com.spartaglobal.moviesapi.steps;
+package com.spartaglobal.moviesapi.acceptance.steps;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
