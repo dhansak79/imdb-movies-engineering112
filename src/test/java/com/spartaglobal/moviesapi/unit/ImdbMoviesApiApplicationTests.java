@@ -1,4 +1,4 @@
-package com.spartaglobal.moviesapi;
+package com.spartaglobal.moviesapi.unit;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;

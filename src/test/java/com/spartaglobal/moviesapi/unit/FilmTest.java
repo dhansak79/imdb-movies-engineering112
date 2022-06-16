@@ -1,4 +1,4 @@
-package com.spartaglobal.moviesapi;
+package com.spartaglobal.moviesapi.unit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

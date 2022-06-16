@@ -1,10 +1,11 @@
-package com.spartaglobal.moviesapi.filehandling;
+package com.spartaglobal.moviesapi.unit.filehandling;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import com.spartaglobal.moviesapi.filehandling.CsvReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
