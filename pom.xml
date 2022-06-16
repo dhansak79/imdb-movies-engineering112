@@ -165,6 +165,9 @@
                   <goal>report</goal>
                 </goals>
                 <configuration>
+                  <excludes>
+                    <exclude>com/spartaglobal/moviesapi/acceptance/*</exclude>
+                  </excludes>
                   <formats>
                     <format>XML</format>
                   </formats>

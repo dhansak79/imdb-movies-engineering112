@@ -2,6 +2,7 @@ package com.spartaglobal.moviesapi.service;
 
 import com.spartaglobal.moviesapi.model.Film;
 import com.spartaglobal.moviesapi.data.FilmRepository;
+import com.spartaglobal.moviesapi.service.exceptions.IdNotFoundException;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
@@ -18,5 +19,10 @@ public class FilmServiceImpl implements FilmService {
   @Override
   public List<Film> getAllFilms() {
     return (List<Film>) repo.findAll();
+  }
+
+  @Override
+  public Film getFilmById(Long id) {
+    return repo.findById(id).get();
   }
 }

@@ -6,3 +6,5 @@ public class NoFilmsInDatabaseException extends Exception{
     super(message);
   }
 }
+
+
