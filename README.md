@@ -39,6 +39,26 @@ using an API
 
 - You can hit the endpoint  `localhost:8080/getFilms` to call the API and return all films
 
+## Data Sample
+
+A sample of the data can be found at:
+> [Sample Data](./src/main/resources/imdb_data.csv)
+
+- Column 1  => Movie title as a String.
+- Column 2  => IMDB Score as a double.
+- Column 3  => Movie release year as an Integer.
+- Column 4  => Movie duration as an Integer.
+- Column 5  => Movie Age ratings as a String.
+- Column 6  => Movie budget as a Long.
+- Column 7  => Movie genre as a String separated by |, e.g Action|Adventure|Comedy.
+- Column 8  => Movie gross as a Long.
+- Column 9  => Director's name as a String.
+- Column 10 => Actor one as a String.
+- Column 11 => Actor two as a String.
+- Column 12 => Actor three as a String.
+- Column 13 => Movie Language
+- Column 14 => Movie Country
+
 ## Quality Assurance
 
 *How to run Test*
