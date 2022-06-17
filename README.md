@@ -35,12 +35,12 @@ using an API
   > java -jar IMDB-Movies-API-0.0.1-SNAPSHOT.jar "insert your file path here"
 - To access the database open up a browser and navigate to
   
-  "http://localhost:8080/h2"
+  http://localhost:8080/h2
  
-- JDBC URL to log into the H2 console: `jdbc:h2:mem:IMDBFilmsTestDB`
-- Username: `sa`
-- There is no password
-- Hit connect to log into H2
+  - JDBC URL to log into the H2 console: `jdbc:h2:mem:IMDBFilmsTestDB`
+  - Username: `sa`
+  - There is no password
+  - Hit connect to log into H2
 
 - You can hit the endpoint `localhost:8080/getFilms` to call the API and return all films
 - You can also hit the endpoint `localhost:8080/getFilms/{Title}` where title can be a single letter to return all the films that begin with that letter or a string of letters which will return all the films which contain the string pattern in the title. 
