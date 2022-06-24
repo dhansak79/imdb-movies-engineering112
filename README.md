@@ -77,7 +77,7 @@ Run the following on the terminal
 *The image shows the cucumber test report which shows that film data from csv has been loaded
 successfully**
 
-![image](https://user-images.githubusercontent.com/80487618/174051980-48ad203b-d238-4d77-ab88-6ce9920779af.png)
+<img src="src/test/resources/testEvidence/End_to_end_test_report.png" />
 
 - Junit used for unit testing giving above 80% coverage
 - Quality Gate used to check the overall code quality
